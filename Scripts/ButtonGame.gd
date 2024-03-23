@@ -1,5 +1,7 @@
 extends Node2D
 
+signal door_button_pressed
 
 func _on_action_fild_area_entered(area):
-	queue_free() # Replace with function body.
+	door_button_pressed.emit()
+	queue_free()

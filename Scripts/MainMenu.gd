@@ -1,6 +1,7 @@
 extends Node
 
 func _ready():
+	$GridContainer/StartButton
 	var startButton = get_node("GridContainer/StartButton")
 	startButton.pressed.connect(self._start_button_pressed)	
 	var settingsButton = get_node("GridContainer/SettingsButton")

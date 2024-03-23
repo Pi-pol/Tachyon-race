@@ -7,9 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
 [ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6584t"]
-radius = 8.0
-height = 34.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84ht8"]
+size = Vector2(32.5, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60p0f"]
 size = Vector2(32, 32)
@@ -41,7 +40,7 @@ size = Vector2(1, 1)
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_y7u1b")]
-position = Vector2(81, 57)
+position = Vector2(52, 67)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
@@ -54,9 +53,9 @@ position_smoothing_speed = 18.0
 [node name="action_emmiter" parent="Player" instance=ExtResource("2_pu3r0")]
 
 [node name="CollisionShape2D" parent="Player/action_emmiter" index="0"]
-position = Vector2(0, 25)
+position = Vector2(1.90735e-05, 0.249985)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_6584t")
+shape = SubResource("RectangleShape2D_84ht8")
 
 [node name="jakiśKamień" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true

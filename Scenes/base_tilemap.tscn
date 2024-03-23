@@ -1526,7 +1526,7 @@ tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8otng")
 
-[node name="TileMap" type="TileMap"]
+[node name="BaseTilemap" type="TileMap"]
 tile_set = SubResource("TileSet_50sbj")
 rendering_quadrant_size = 32
 format = 2

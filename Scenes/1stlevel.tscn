@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=3 format=3 uid="uid://c44yqnwenq6m5"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_56cqw"]
+[ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
 
 [node name="1Stlevel" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_56cqw")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_xif6h")

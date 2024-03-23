@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const ACCELERATION =500
-const MAX_SPEED =80
-const FRICTION = 500
+const ACCELERATION =700
+const MAX_SPEED =160
+const FRICTION = 700
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO

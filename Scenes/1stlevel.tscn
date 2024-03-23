@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c44yqnwenq6m5"]
+[gd_scene load_steps=4 format=3 uid="uid://oo0vn7fcpglf"]
 
-[ext_resource type="PackedScene" uid="uid://cou6e7lwr78fq" path="res://Scenes/player.tscn" id="1_y7u1b"]
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60p0f"]
@@ -11,10 +11,14 @@ size = Vector2(32, 32)
 [node name="Player" parent="." instance=ExtResource("1_y7u1b")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 2000
 position_smoothing_enabled = true
+position_smoothing_speed = 18.0
 
 [node name="jakiśKamień" type="StaticBody2D" parent="."]
-position = Vector2(-2, 10)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="jakiśKamień"]

@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=8 format=3 uid="uid://oo0vn7fcpglf"]
 
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_y7u1b"]
+[ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
+[ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
+[ext_resource type="Shader" path="res://Scenes/1stlevel.gdshader" id="3_41vm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60p0f"]
 size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h14jk"]
+shader = ExtResource("3_41vm3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cajd"]
+size = Vector2(1, 1)
 
 [node name="1Stlevel" type="Node2D"]
 
@@ -28,3 +36,16 @@ shape = SubResource("RectangleShape2D_60p0f")
 [node name="Sprite2D" type="Sprite2D" parent="jakiśKamień"]
 position = Vector2(212, 64)
 texture = ExtResource("2_40tig")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+material = SubResource("ShaderMaterial_h14jk")
+position = Vector2(172, 125)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+material = SubResource("ShaderMaterial_h14jk")
+texture = ExtResource("2_xif6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+material = SubResource("ShaderMaterial_h14jk")
+scale = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_0cajd")

@@ -16,3 +16,12 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(Vector2.ZERO,FRICTION*delta)
 	move_and_slide()
 
+func _check_pushables(motion: Vector2) -> void:
+	if abs(motion.x) + abs(motion.y) > 1:
+		return
+	var box := get_slide_collision(0)
+	if box:
+		pass
+
+func _check_buttonables(motion: Vector2) -> void:
+	pass

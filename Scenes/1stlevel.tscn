@@ -17,7 +17,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("2_xif6h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Sprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, 7)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_r6njw")

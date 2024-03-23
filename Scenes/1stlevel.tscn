@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=12 format=3 uid="uid://oo0vn7fcpglf"]
 
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
 [ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
 [ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
+[ext_resource type="Shader" path="res://Scenes/1stlevel.gdshader" id="3_41vm3"]
+[ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6584t"]
+radius = 8.0
+height = 34.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60p0f"]
 size = Vector2(32, 32)
@@ -44,6 +51,13 @@ limit_bottom = 2000
 position_smoothing_enabled = true
 position_smoothing_speed = 18.0
 
+[node name="action_emmiter" parent="Player" instance=ExtResource("2_pu3r0")]
+
+[node name="CollisionShape2D" parent="Player/action_emmiter" index="0"]
+position = Vector2(0, 25)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6584t")
+
 [node name="jakiśKamień" type="StaticBody2D" parent="."]
 metadata/_edit_group_ = true
 
@@ -68,3 +82,8 @@ material = SubResource("ShaderMaterial_h14jk")
 position = Vector2(172, 125)
 scale = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_0cajd")
+
+[node name="ButtonGame" parent="." instance=ExtResource("6_4hc3a")]
+position = Vector2(82, 179)
+
+[editable path="Player/action_emmiter"]

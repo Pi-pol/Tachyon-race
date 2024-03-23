@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b1aj37uibqfqo"
+path="res://.godot/imported/tree_oak_fall.obj-f3c5e8fb50147142e90a0b681968eeca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree_oak_fall.obj-f3c5e8fb50147142e90a0b681968eeca.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/tree_oak_fall.obj"
+dest_files=["res://.godot/imported/tree_oak_fall.obj-f3c5e8fb50147142e90a0b681968eeca.mesh", "res://.godot/imported/tree_oak_fall.obj-f3c5e8fb50147142e90a0b681968eeca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

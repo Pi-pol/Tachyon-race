@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ctmy7k4ap5qm0"
+path="res://.godot/imported/cliff_blockCave_stone.obj-061d5f7f9a0fd561029ed04eb6e0a565.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cliff_blockCave_stone.obj-061d5f7f9a0fd561029ed04eb6e0a565.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/cliff_blockCave_stone.obj"
+dest_files=["res://.godot/imported/cliff_blockCave_stone.obj-061d5f7f9a0fd561029ed04eb6e0a565.mesh", "res://.godot/imported/cliff_blockCave_stone.obj-061d5f7f9a0fd561029ed04eb6e0a565.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

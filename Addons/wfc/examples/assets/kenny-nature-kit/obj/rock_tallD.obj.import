@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bda36njgcrble"
+path="res://.godot/imported/rock_tallD.obj-cac818f829176c576fefa41d58a345b0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rock_tallD.obj-cac818f829176c576fefa41d58a345b0.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/rock_tallD.obj"
+dest_files=["res://.godot/imported/rock_tallD.obj-cac818f829176c576fefa41d58a345b0.mesh", "res://.godot/imported/rock_tallD.obj-cac818f829176c576fefa41d58a345b0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

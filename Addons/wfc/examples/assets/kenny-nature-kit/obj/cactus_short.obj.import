@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://n74wd68wvbli"
+path="res://.godot/imported/cactus_short.obj-6f769db6e9411a17d0fdc7de65a9346b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cactus_short.obj-6f769db6e9411a17d0fdc7de65a9346b.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/cactus_short.obj"
+dest_files=["res://.godot/imported/cactus_short.obj-6f769db6e9411a17d0fdc7de65a9346b.mesh", "res://.godot/imported/cactus_short.obj-6f769db6e9411a17d0fdc7de65a9346b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

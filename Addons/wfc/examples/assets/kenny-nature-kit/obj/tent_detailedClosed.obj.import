@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4vn7kc56qh8p"
+path="res://.godot/imported/tent_detailedClosed.obj-7860ad7554d206d968b96e0fb58e038a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tent_detailedClosed.obj-7860ad7554d206d968b96e0fb58e038a.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/tent_detailedClosed.obj"
+dest_files=["res://.godot/imported/tent_detailedClosed.obj-7860ad7554d206d968b96e0fb58e038a.mesh", "res://.godot/imported/tent_detailedClosed.obj-7860ad7554d206d968b96e0fb58e038a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

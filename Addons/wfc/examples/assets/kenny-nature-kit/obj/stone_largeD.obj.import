@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://8xgfcmobaw4"
+path="res://.godot/imported/stone_largeD.obj-9a8f98491cd21cf2ba3a5ae5fac9927b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stone_largeD.obj-9a8f98491cd21cf2ba3a5ae5fac9927b.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/stone_largeD.obj"
+dest_files=["res://.godot/imported/stone_largeD.obj-9a8f98491cd21cf2ba3a5ae5fac9927b.mesh", "res://.godot/imported/stone_largeD.obj-9a8f98491cd21cf2ba3a5ae5fac9927b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bqko7vpbujscl"
+path="res://.godot/imported/ground_riverTile.obj-d79d26801791870176a2c45000eb70db.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ground_riverTile.obj-d79d26801791870176a2c45000eb70db.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/ground_riverTile.obj"
+dest_files=["res://.godot/imported/ground_riverTile.obj-d79d26801791870176a2c45000eb70db.mesh", "res://.godot/imported/ground_riverTile.obj-d79d26801791870176a2c45000eb70db.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

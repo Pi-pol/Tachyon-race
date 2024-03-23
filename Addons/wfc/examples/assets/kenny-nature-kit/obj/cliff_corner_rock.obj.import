@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bw0od45bxsihu"
+path="res://.godot/imported/cliff_corner_rock.obj-61df80249bc2f729473c2f45ca80897d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cliff_corner_rock.obj-61df80249bc2f729473c2f45ca80897d.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/cliff_corner_rock.obj"
+dest_files=["res://.godot/imported/cliff_corner_rock.obj-61df80249bc2f729473c2f45ca80897d.mesh", "res://.godot/imported/cliff_corner_rock.obj-61df80249bc2f729473c2f45ca80897d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

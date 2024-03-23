@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://xmub6wqdrt80"
+path="res://.godot/imported/tree_pineSmallC.obj-63f8402082968f0fb4ff3f921d4910e7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree_pineSmallC.obj-63f8402082968f0fb4ff3f921d4910e7.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/tree_pineSmallC.obj"
+dest_files=["res://.godot/imported/tree_pineSmallC.obj-63f8402082968f0fb4ff3f921d4910e7.mesh", "res://.godot/imported/tree_pineSmallC.obj-63f8402082968f0fb4ff3f921d4910e7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

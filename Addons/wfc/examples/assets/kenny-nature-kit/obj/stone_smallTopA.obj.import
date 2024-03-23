@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmh42x47cr3ht"
+path="res://.godot/imported/stone_smallTopA.obj-aea43f05ef123d750b2199b9976e5910.mesh"
+
+[deps]
+
+files=["res://.godot/imported/stone_smallTopA.obj-aea43f05ef123d750b2199b9976e5910.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/stone_smallTopA.obj"
+dest_files=["res://.godot/imported/stone_smallTopA.obj-aea43f05ef123d750b2199b9976e5910.mesh", "res://.godot/imported/stone_smallTopA.obj-aea43f05ef123d750b2199b9976e5910.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

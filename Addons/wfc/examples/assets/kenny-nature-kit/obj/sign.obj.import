@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bd812fg0c6hje"
+path="res://.godot/imported/sign.obj-e896f1c3c0086d0ccf532c5c83f7afcf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sign.obj-e896f1c3c0086d0ccf532c5c83f7afcf.mesh"]
+
+source_file="res://Addons/wfc/examples/assets/kenny-nature-kit/obj/sign.obj"
+dest_files=["res://.godot/imported/sign.obj-e896f1c3c0086d0ccf532c5c83f7afcf.mesh", "res://.godot/imported/sign.obj-e896f1c3c0086d0ccf532c5c83f7afcf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

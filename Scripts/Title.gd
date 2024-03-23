@@ -13,7 +13,7 @@ func fade_out():
 	get_tree().create_timer(3).timeout.connect(start_menu_scene)
 	
 func start_menu_scene():
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 	
 func _input(event):
 	if event is InputEvent and event.is_pressed():

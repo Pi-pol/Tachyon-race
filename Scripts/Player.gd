@@ -24,6 +24,7 @@ func _check_pushables(motion: Vector2) -> void:
 	var box := get_slide_collision(0).get_collider() as Box
 	if box:
 		box.push(motion)
+		
 
 func _check_buttonables(motion: Vector2) -> void:
 	pass

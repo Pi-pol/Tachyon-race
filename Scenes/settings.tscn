@@ -1,3 +1,46 @@
-[gd_scene format=3 uid="uid://cph5qy6i71fgb"]
+[gd_scene load_steps=4 format=3 uid="uid://ck7iwj3gwqadw"]
 
-[node name="Settings" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dwvu25lvv6tc1" path="res://Assets/BTN Exit.png" id="1_i1li7"]
+[ext_resource type="Script" path="res://Scenes/settings.gd" id="1_jmmgr"]
+[ext_resource type="Script" path="res://Scenes/masterVolume.gd" id="2_artx6"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_jmmgr")
+
+[node name="containers" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = -104.0
+offset_top = -87.5
+offset_right = 104.0
+offset_bottom = -44.5
+
+[node name="Label" type="Label" parent="containers"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="master" type="HSlider" parent="containers"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_artx6")
+
+[node name="backToMenu" type="Button" parent="."]
+layout_mode = 2
+offset_left = -18.0
+offset_top = -40.5
+offset_right = 18.0
+offset_bottom = -5.5
+size_flags_horizontal = 4
+size_flags_vertical = 8
+icon = ExtResource("1_i1li7")
+
+[connection signal="pressed" from="backToMenu" to="." method="_on_back_to_menu_pressed"]

@@ -15,4 +15,7 @@ func fade_out():
 func start_menu_scene():
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	
+func _input(event):
+	if event is InputEvent and event.is_pressed():
+		start_menu_scene()
 	

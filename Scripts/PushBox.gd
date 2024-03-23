@@ -1,11 +1,6 @@
-extends Node
+extends Box
+class_name PushableBox
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func push(inVelocity: Vector2) -> void:
+	velocity = inVelocity;
+	move_and_slide()

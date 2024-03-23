@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://byvm3u2388a0w"]
+
+[ext_resource type="Script" path="res://Scripts/ButtonGame.gd" id="1_smq3e"]
+[ext_resource type="Texture2D" uid="uid://gyir0vifmt4p" path="res://button.png" id="2_62bly"]
+[ext_resource type="PackedScene" uid="uid://cy5giqpciqlg8" path="res://Scenes/action_fild.tscn" id="3_q23bv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osnqu"]
+size = Vector2(32, 32)
+
+[node name="ButtonGame" type="Node2D"]
+script = ExtResource("1_smq3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_62bly")
+
+[node name="ActionFild" parent="." instance=ExtResource("3_q23bv")]
+
+[node name="CollisionShape2D" parent="ActionFild" index="0"]
+shape = SubResource("RectangleShape2D_osnqu")
+
+[connection signal="area_entered" from="ActionFild" to="." method="_on_action_fild_area_entered"]
+
+[editable path="ActionFild"]

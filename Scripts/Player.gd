@@ -1,14 +1,8 @@
 extends CharacterBody2D
 
-<<<<<<< Updated upstream
-const ACCELERATION =700
-const MAX_SPEED =160
-const FRICTION = 700
-=======
 const ACCELERATION = 2000
 const MAX_SPEED =500
 const FRICTION = 8000
->>>>>>> Stashed changes
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO

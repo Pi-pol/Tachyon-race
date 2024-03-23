@@ -6,15 +6,25 @@
 script = ExtResource("1_3mu4k")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-offset_right = 1080.0
-offset_bottom = 720.0
+offset_left = 40.0
+offset_top = 260.0
+offset_right = 1040.0
+offset_bottom = 460.0
+size_flags_horizontal = 3
 size_flags_vertical = 4
+size_flags_stretch_ratio = 10.29
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
 
 [node name="StartButton" type="Button" parent="GridContainer"]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 6
 text = "START GAME!"
 
 [node name="Button2" type="Button" parent="GridContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.8
 text = "OPTIONS"

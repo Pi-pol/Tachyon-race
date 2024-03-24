@@ -79,7 +79,7 @@ script = ExtResource("1_lvx0o")
 position = Vector2(540, -1.00004)
 scale = Vector2(0.5625, 0.668518)
 sprite_frames = SubResource("SpriteFrames_58nui")
-frame_progress = 0.530002
+frame_progress = 0.338692
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1

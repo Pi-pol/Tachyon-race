@@ -307,6 +307,7 @@ text = "But   Even   if   You   die
 Your   progress   is   Safe"
 
 [node name="DoorsTilemap" parent="." instance=ExtResource("8_k6orn")]
+position = Vector2(1, 1)
 layer_0/z_index = 1410065407
 layer_0/tile_data = PackedInt32Array(196614, 0, 1, 131079, 65536, 0, 196615, 65536, 1, 131080, 131072, 0, 196616, 131072, 1, 131078, 0, 0, 65543, 458752, 1, 262151, 458752, 1, 65542, 589824, 0, 262150, 589824, 0, 262152, 524288, 0, 65544, 524288, 0, 196624, 0, 1, 131089, 65536, 0, 196625, 65536, 1, 196626, 131072, 1, 131090, 131072, 0, 65552, 589824, 0, 65554, 524288, 0, 65553, 458752, 1, 262161, 458752, 1, 262162, 524288, 0, 262160, 589824, 0, 393233, 458752, 0, 131088, 0, 0)
 script = ExtResource("9_qrhr4")
@@ -394,21 +395,22 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(521, 494)
 
 [node name="Text 1" type="RichTextLabel" parent="Text1Node8"]
-offset_left = 165.0
+offset_left = 151.0
 offset_top = -328.0
-offset_right = 313.0
+offset_right = 333.0
 offset_bottom = -262.0
 theme_override_fonts/normal_font = ExtResource("12_gps5e")
-text = "Put the fuel here"
+text = "Put the fuel here
+(Each   reactor   requires   4   piecies)"
 
 [node name="Text1Node6" type="Node2D" parent="."]
 position = Vector2(553, 562)
 
 [node name="Text 1" type="RichTextLabel" parent="Text1Node6"]
-offset_left = 165.0
-offset_top = -328.0
-offset_right = 313.0
-offset_bottom = -262.0
+offset_left = 163.0
+offset_top = -320.0
+offset_right = 311.0
+offset_bottom = -254.0
 theme_override_fonts/normal_font = ExtResource("12_gps5e")
 text = "Pickup The fuel"
 

@@ -11,9 +11,11 @@ var inventory = ""
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
 func _physics_process(delta):
-	if not alive:
-		animationTree.set("parameters/kys/blend_position", Vector2(0, 0))
-		return
+	if time <= 0:
+		alive = false
+		if not alive:
+			animationTree.set("parameters/kys/blend_position", Vector2(0, 0))
+			return
 	steps.append(position)
 	time -= delta
 	#print(time)

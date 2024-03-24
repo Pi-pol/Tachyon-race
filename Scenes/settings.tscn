@@ -16,29 +16,28 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_jmmgr")
 
-[node name="CheckButton" type="HBoxContainer" parent="."]
-layout_mode = 2
-offset_left = -105.0
-offset_top = -112.0
-offset_right = 103.0
-offset_bottom = -88.0
-
-[node name="Fullscreen" type="Label" parent="CheckButton"]
-visible = false
-layout_mode = 2
-text = "Fullscreen
-"
-
-[node name="CheckButton" type="CheckButton" parent="CheckButton"]
-layout_mode = 2
-text = "Fullscreen"
-
 [node name="containers" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = -104.0
 offset_top = -87.5
 offset_right = 104.0
 offset_bottom = -44.5
+
+[node name="CheckButton" type="HBoxContainer" parent="containers"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="containers/CheckButton"]
+visible = false
+layout_mode = 2
+text = "Fullscreen
+"
+
+[node name="CheckButton" type="CheckButton" parent="containers/CheckButton"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="resolutionsOptionButton" type="OptionButton" parent="containers"]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="containers"]
 layout_mode = 2
@@ -52,13 +51,14 @@ script = ExtResource("2_artx6")
 
 [node name="backToMenu" type="Button" parent="."]
 layout_mode = 2
-offset_left = -18.0
-offset_top = -40.5
-offset_right = 18.0
-offset_bottom = -5.5
+offset_left = -14.0
+offset_top = 34.0
+offset_right = 22.0
+offset_bottom = 69.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 icon = ExtResource("1_i1li7")
 
-[connection signal="toggled" from="CheckButton/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="containers/CheckButton/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="item_selected" from="containers/resolutionsOptionButton" to="." method="_on_resolutions_option_button_item_selected"]
 [connection signal="pressed" from="backToMenu" to="." method="_on_back_to_menu_pressed"]

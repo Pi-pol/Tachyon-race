@@ -1,16 +1,17 @@
-[gd_scene load_steps=33 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=42 format=3 uid="uid://oo0vn7fcpglf"]
 
 [ext_resource type="Script" path="res://Scripts/1stlevel.gd" id="1_px6b5"]
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
-[ext_resource type="PackedScene" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
 [ext_resource type="Script" path="res://wiredBox.gd" id="6_2ra4e"]
-[ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+[ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
 [ext_resource type="Script" path="res://fuel_loader.gd" id="7_3apam"]
 [ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="Script" path="res://wiredActionField.gd" id="7_j28ma"]
 [ext_resource type="Script" path="res://fuel_supply.gd" id="8_20lrw"]
-[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
 [ext_resource type="Script" path="res://Scripts/inventory_helper.gd" id="9_wuy8x"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="10_a3aqt"]
@@ -19,7 +20,7 @@
 [ext_resource type="FontFile" uid="uid://cqsuld7mf6wi" path="res://Assets/ARCADECLASSIC.TTF" id="12_gps5e"]
 [ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="12_oajyf"]
 [ext_resource type="AudioStream" uid="uid://bmmbw504m5ym0" path="res://Assets/SFX/door.wav" id="13_jtfjq"]
-[ext_resource type="PackedScene" uid="uid://bobhlkyxttsem" path="res://Scenes/item.tscn" id="13_l8ngd"]
+[ext_resource type="PackedScene" path="res://Scenes/item.tscn" id="13_l8ngd"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="17_wy7op"]
 [ext_resource type="AudioStream" uid="uid://sdot0hbnwsdv" path="res://Assets/SFX/theme.wav" id="18_8dxdt"]
 [ext_resource type="Script" path="res://Scripts/ColorRect.gd" id="19_d6gus"]
@@ -249,6 +250,9 @@ script = ExtResource("11_a4r7w")
 [node name="Player" parent="TileMap" instance=ExtResource("1_y7u1b")]
 position = Vector2(106, 102)
 
+[node name="CollisionShape2D" parent="TileMap/Player" index="1"]
+visible = false
+
 [node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
 zoom = Vector2(4, 4)
 limit_left = -16
@@ -281,6 +285,7 @@ color = Color(1, 1, 1, 0)
 script = ExtResource("19_d6gus")
 
 [node name="action_emmiter" parent="TileMap/Player" instance=ExtResource("2_pu3r0")]
+visible = false
 
 [node name="CollisionShape2D" parent="TileMap/Player/action_emmiter" index="0"]
 rotation = 1.5708
@@ -372,6 +377,9 @@ position = Vector2(492, 110)
 
 [node name="Sprite2D" parent="item" index="0"]
 texture = ExtResource("24_a5548")
+
+[node name="ActionFild" parent="item" index="1"]
+visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_8dxdt")

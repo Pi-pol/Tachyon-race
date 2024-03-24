@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://0iu05twgaotd"]
+[gd_scene load_steps=2 format=3 uid="uid://dv64q5pg2nnio"]
+
+[ext_resource type="Texture2D" uid="uid://djdjlpshcfknr" path="res://Assets/animation.png" id="1_ph25d"]
 
 [node name="gamestory" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ph25d")

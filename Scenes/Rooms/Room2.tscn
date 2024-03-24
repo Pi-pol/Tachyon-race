@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dociwbo67yc4b"]
+[gd_scene load_steps=16 format=3 uid="uid://dociwbo67yc4b"]
 
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="1_3n1iv"]
 [ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="2_jtw7p"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="3_akc6f"]
 [ext_resource type="Script" path="res://Scripts/Furniture.gd" id="4_siq4a"]
+[ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="5_aj8b4"]
+[ext_resource type="Script" path="res://Scenes/playerRoom2.gd" id="6_retep"]
+[ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="7_ohgjc"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="8_egcla"]
+[ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="9_hmypb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8u53"]
 texture = ExtResource("3_akc6f")
@@ -163,6 +168,46 @@ texture_region_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f8u53")
 
+[sub_resource type="Animation" id="Animation_ekvhq"]
+resource_name = "ClockAnim"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5, 3.7, 5, 6.2, 7.5, 8.7, 10, 11.2, 12.6, 13.7, 15, 16.2, 17.5, 18.8, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_d61jl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w8fq"]
+_data = {
+"ClockAnim": SubResource("Animation_ekvhq"),
+"RESET": SubResource("Animation_d61jl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjw2r"]
+size = Vector2(32, 32)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="BaseTilemap" parent="." instance=ExtResource("1_3n1iv")]
@@ -177,3 +222,40 @@ tile_set = SubResource("TileSet_5dipu")
 format = 2
 layer_0/tile_data = PackedInt32Array(-458752, 65536, 0, -393216, 131072, 0, -458746, 196608, 0, -65537, 65536, 3, 65535, 65536, 3, -65535, 131072, 0, -131071, 131072, 0, -458744, 196608, 0, -458747, 589824, 0, -524282, 589824, 0, -458736, 524288, 1, -458729, 524288, 1, -131064, 327680, 1, -131056, 327680, 1, 8, 262144, 1, 16, 262144, 1, 1179666, 393216, 1, 1703954, 393216, 1, 1703956, 458752, 1, 1179668, 458752, 1, 2555941, 196608, 1, 2818085, 196608, 1, 3014676, 196608, 3, 2359316, 196608, 3, 2359326, 196608, 3, 3014686, 196608, 3, 2949170, 655360, 0, 2949172, 655360, 0, 2949174, 655360, 0, 2949173, 655360, 0, 2949171, 655360, 0, 2949175, 655360, 0, 2949176, 655360, 0, 2949177, 655360, 0, 2949178, 655360, 0, 2949179, 655360, 0, 2949180, 655360, 0, 3735602, 655360, 1, 3735603, 655360, 1, 3735604, 655360, 1, 3735606, 655360, 1, 3735605, 655360, 1, 3735607, 655360, 1, 3735608, 655360, 1, 3735609, 655360, 1, 3735610, 655360, 1, 3735611, 655360, 1, 3735612, 655360, 1, 3276861, 196608, 3, 3407933, 196608, 3, 2818068, 0, 1, 2555924, 0, 1, 2293785, 65536, 0, 2359321, 131072, 0, 262144, 458752, 0, 2752537, 458752, 2, 458809, 524288, 1, 458810, 524288, 1, -589790, 524288, 1, -589779, 524288, 1, 262178, 196608, 3, 262188, 196608, 3, 720933, 196608, 2, 720937, 196608, 2, 786472, 458752, 1, 262184, 458752, 1, 262182, 393216, 1, 786470, 393216, 1, 131095, 65536, 1, 655383, 65536, 1, -458733, 196608, 0, 34, 393216, 2, -393214, 393216, 2, 3014706, 524288, 2, 3604541, 524288, 2, 3014681, 524288, 2, 3407910, 393216, 0, -589784, 65536, 0, -131027, 0, 2, 786474, 458752, 0, -458735, 458752, 0, 524305, 524288, 2, -196564, 131072, 0, -524248, 131072, 0, -589788, 327680, 2, -589781, 589824, 0, -65491, 524288, 0, 45, 524288, 0, -131038, 524288, 0, -196574, 524288, 0, -262110, 524288, 0, -327646, 524288, 0, -393182, 524288, 0, -458718, 524288, 0, -589786, 196608, 0, 2883614, 65536, 1, 2490398, 65536, 1, 1769513, 0, 2, 1376264, 0, 2)
 script = ExtResource("4_siq4a")
+
+[node name="Player" parent="." instance=ExtResource("5_aj8b4")]
+position = Vector2(106, 102)
+script = ExtResource("6_retep")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+limit_left = -16
+limit_top = -16
+limit_right = 3000
+limit_bottom = 2000
+position_smoothing_enabled = true
+position_smoothing_speed = 18.0
+editor_draw_limits = true
+
+[node name="AnimationClock" type="AnimationPlayer" parent="Player/Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_6w8fq")
+}
+
+[node name="ClockSp" type="Sprite2D" parent="Player/Camera2D"]
+position = Vector2(-86, -74)
+texture = ExtResource("7_ohgjc")
+hframes = 17
+frame = 16
+
+[node name="action_emmiter" parent="Player" instance=ExtResource("8_egcla")]
+
+[node name="CollisionShape2D" parent="Player/action_emmiter" index="0"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_pjw2r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("9_hmypb")
+
+[editable path="Player"]
+[editable path="Player/action_emmiter"]

@@ -5,12 +5,15 @@ const MAX_SPEED =300
 const FRICTION = 8000
 var inventory = ""
 
-
+@onready var alive = true
 @onready var steps = []
 @onready var time = 20
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
 func _physics_process(delta):
+	if not alive:
+		animationTree.set("parameters/kys/blend_position", Vector2(0, 0))
+		return
 	steps.append(position)
 	time -= delta
 	print(time)
@@ -70,8 +73,9 @@ func _on_item_item_collected(Name):
 func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_K:
-			$AnimationPlayer.play("Kys")
-			
+			alive = false
+			$AnimationPlayer.set_current_animation("Kys")
+			$AnimationPlayer.advance(0)
 			
 		elif event.keycode == KEY_ESCAPE:
 			var world = get_node(".")

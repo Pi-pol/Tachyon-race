@@ -225,7 +225,6 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ifwrl"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8bpxu"]
-resource_local_to_scene = true
 states/Start/position = Vector2(269, 100)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_yr12j")
 states/idle/position = Vector2(447, 100)

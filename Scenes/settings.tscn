@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck7iwj3gwqadw"]
 
 [ext_resource type="Texture2D" uid="uid://dwvu25lvv6tc1" path="res://Assets/BTN Exit.png" id="1_i1li7"]
-[ext_resource type="Script" path="res://Scenes/settings.gd" id="1_jmmgr"]
-[ext_resource type="Script" path="res://Scenes/masterVolume.gd" id="2_artx6"]
+[ext_resource type="Script" path="res://Scripts/settingsMenu.gd" id="1_jmmgr"]
+[ext_resource type="Script" path="res://Scripts/masterVolume.gd" id="2_artx6"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3

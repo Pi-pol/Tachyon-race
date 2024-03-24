@@ -114,4 +114,23 @@ func _on_button_game_3_item_pickup_area():
 func _on_button_game_4_taken_fuel():
 	if inventory == "fuel":
 		inventory = ""
-	
+
+func _on_fuel_1_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_fuel_2_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_fuel_3_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_fuel_4_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_action_fild_area_entered(area):
+	if inventory == "fuel":
+		inventory = ""

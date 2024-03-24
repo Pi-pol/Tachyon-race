@@ -1,6 +1,7 @@
 extends Area2D
 
 
+
 # Called when the node enters the scene tree for the first time.
 var start
 @onready var cables = [

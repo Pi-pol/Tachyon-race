@@ -5,6 +5,8 @@ const MAX_SPEED = 300
 const FRICTION = 8000
 var inventory = ""
 
+signal has_keycard(bool)
+
 @onready var alive = true
 @onready var steps = []
 @onready var time = 20
@@ -71,6 +73,10 @@ func _on_item_item_collected(Name):
 		object.itemCollected.connect(_on_item_item_collected)
 	print("After picking up")
 	print(inventory)
+	if inventory:
+		has_keycard.emit(true)
+	else:
+		has_keycard.emit(false)
 
 
 func _input(event):

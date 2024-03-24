@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=28 format=3 uid="uid://oo0vn7fcpglf"]
 
 [ext_resource type="Script" path="res://Scenes/1stlevel.gd" id="1_px6b5"]
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
 [ext_resource type="AudioStream" uid="uid://c4v3345i5mcrw" path="res://Assets/SFX/button.wav" id="5_pl653"]
 [ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+[ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
@@ -111,7 +112,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_60p0f")
 
 [node name="Sprite2D" type="Sprite2D" parent="jakiśKamień"]
-position = Vector2(1.52588e-05, -17)
+position = Vector2(-220, 189)
 scale = Vector2(1, 1.46875)
 texture = ExtResource("2_40tig")
 
@@ -120,6 +121,13 @@ visible = false
 position = Vector2(176, 30)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ButtonGame"]
+stream = ExtResource("5_pl653")
+
+[node name="ButtonGame2" parent="." instance=ExtResource("6_4hc3a")]
+position = Vector2(463, 32)
+script = ExtResource("7_6f5of")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ButtonGame2"]
 stream = ExtResource("5_pl653")
 
 [node name="TileMap" parent="." instance=ExtResource("7_fkt6h")]
@@ -195,6 +203,8 @@ scale = Vector2(0.6, 0.6)
 
 [connection signal="door_button_pressed" from="ButtonGame" to="TileMap/Furniture" method="_on_button_game_door_button_pressed"]
 [connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
+[connection signal="door_button_pressed" from="ButtonGame2" to="TileMap/Furniture" method="_on_button_game_door_button_pressed"]
+[connection signal="door_button_pressed" from="ButtonGame2" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
 [connection signal="itemCollected" from="item" to="TileMap/Player" method="_on_item_item_collected"]
 [connection signal="area_entered" from="item/ActionFild" to="TileMap/Player" method="_on_action_fild_area_entered"]
 [connection signal="itemCollected" from="item2" to="TileMap/Player" method="_on_item_item_collected"]
@@ -202,6 +212,8 @@ scale = Vector2(0.6, 0.6)
 
 [editable path="ButtonGame"]
 [editable path="ButtonGame/ActionFild"]
+[editable path="ButtonGame2"]
+[editable path="ButtonGame2/ActionFild"]
 [editable path="TileMap/Player"]
 [editable path="TileMap/Player/action_emmiter"]
 [editable path="item"]

@@ -101,7 +101,7 @@ func _input(event):
 	if not event is InputEventKey:	
 		return
 	if event.keycode == KEY_R:
-		get_tree().change_scene_to_file("res://Scenes/1stlevel.tscn")	
+		get_tree().change_scene_to_file("res://Scenes/Rooms/Room1.tscn")	
 	if event.keycode == KEY_ESCAPE:
 		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")	
 

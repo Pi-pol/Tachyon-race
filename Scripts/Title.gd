@@ -27,7 +27,7 @@ func _ready():
 	AudioServer.set_bus_mute(0, whole_settings["volume"] < 0.05)
 	
 	animation_intro.play("Fade_in")
-	
+	get_tree().create_timer(3).timeout.connect(fade_out)
 	
 func fade_out():
 	animation_intro.play("fade_out")

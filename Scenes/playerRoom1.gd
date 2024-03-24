@@ -7,7 +7,6 @@ var inventory = ""
 
 signal has_keycard(bool)
 signal has_fuel(bool)
-signal cameraDead()
 
 @onready var alive = true
 @onready var steps = []
@@ -20,10 +19,9 @@ func _physics_process(delta):
 	animation_clock.play("ClockAnim")
 	if time <= 0 and alive:
 		print("kms due to time")
-		cameraDead.emit()
 		alive = false
 		if not alive:
-			
+			animationTree.set("parameters/kys/blend_position", Vector2(0, 0))
 			return
 	steps.append(position)
 	time -= delta
@@ -103,7 +101,7 @@ func _input(event):
 	if not event is InputEventKey:	
 		return
 	if event.keycode == KEY_R:
-		get_tree().change_scene_to_file("res://Scenes/1stlevel.tscn")	
+		get_tree().change_scene_to_file("res://Scenes/Rooms/Room1.tscn")	
 	if event.keycode == KEY_ESCAPE:
 		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")	
 
@@ -116,6 +114,4 @@ func _on_button_game_3_item_pickup_area():
 func _on_button_game_4_taken_fuel():
 	if inventory == "fuel":
 		inventory = ""
-
-
 	

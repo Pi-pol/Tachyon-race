@@ -7,7 +7,6 @@ var inventory = ""
 
 signal has_keycard(bool)
 signal has_fuel(bool)
-signal cameraDead()
 
 @onready var alive = true
 @onready var steps = []
@@ -15,14 +14,15 @@ signal cameraDead()
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
 @onready var animation_clock = $Camera2D/AnimationClock
-var target_position : Vector2 = Vector2(106.0, 102.0)
+
 func _physics_process(delta):
 	animation_clock.play("ClockAnim")
 	if time <= 0 and alive:
-		position = target_position
-		
-		cameraDead.emit()
-		time = 20
+		print("kms due to time")
+		alive = false
+		if not alive:
+			animationTree.set("parameters/kys/blend_position", Vector2(0, 0))
+			return
 	steps.append(position)
 	time -= delta
 	#print(time)
@@ -67,6 +67,9 @@ func _on_item_item_collected(Name):
 	print(Name)
 	if(inventory==""):
 		inventory=Name
+	elif (inventory == "fuel"):
+		inventory=Name
+		has_fuel.emit(false)
 	else:
 		print(inventory)
 		var world = get_node(".")
@@ -98,7 +101,7 @@ func _input(event):
 	if not event is InputEventKey:	
 		return
 	if event.keycode == KEY_R:
-		get_tree().change_scene_to_file("res://Scenes/1stlevel.tscn")	
+		get_tree().change_scene_to_file("res://Scenes/Rooms/Room1.tscn")	
 	if event.keycode == KEY_ESCAPE:
 		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")	
 
@@ -112,5 +115,22 @@ func _on_button_game_4_taken_fuel():
 	if inventory == "fuel":
 		inventory = ""
 
+func _on_fuel_1_item_pickup_area():
+	_on_item_item_collected("fuel")
 
-	
+
+func _on_fuel_2_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_fuel_3_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_fuel_4_item_pickup_area():
+	_on_item_item_collected("fuel")
+
+
+func _on_action_fild_area_entered(area):
+	if inventory == "fuel":
+		inventory = ""

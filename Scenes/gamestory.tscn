@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 [gd_scene load_steps=7 format=3 uid="uid://dv64q5pg2nnio"]
 
 [ext_resource type="Texture2D" uid="uid://djdjlpshcfknr" path="res://Assets/animation.png" id="1_ph25d"]
+=======
+[gd_scene format=3 uid="uid://0iu05twgaotd"]
+>>>>>>> cc578ed807606cd4b36abf94e66a061b4a0ccd14
 
 [sub_resource type="Animation" id="Animation_4svcf"]
 length = 0.001
@@ -48,6 +52,7 @@ _data = {
 }
 
 [node name="gamestory" type="Node2D"]
+<<<<<<< HEAD
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(689, 366)
@@ -58,3 +63,5 @@ texture = ExtResource("1_ph25d")
 libraries = {
 "": SubResource("AnimationLibrary_vcbcy")
 }
+=======
+>>>>>>> cc578ed807606cd4b36abf94e66a061b4a0ccd14

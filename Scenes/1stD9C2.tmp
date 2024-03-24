@@ -294,19 +294,9 @@ shape = SubResource("RectangleShape2D_84ht8")
 stream = ExtResource("10_iyrer")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TileMap/Player"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 238.0
-offset_top = 239.0
-offset_right = 444.0
-offset_bottom = 314.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Good    Job,   but   there   is   more   to   do   :3
-Click   to   continue"
+offset_right = 40.0
+offset_bottom = 40.0
+text = "Hello"
 
 [node name="Text1Node7" type="Node2D" parent="."]
 position = Vector2(187, 464)
@@ -315,7 +305,7 @@ position = Vector2(187, 464)
 offset_left = 133.0
 offset_top = -369.0
 offset_right = 289.0
-offset_bottom = -295.0
+offset_bottom = -303.0
 theme_override_fonts/normal_font = ExtResource("12_gps5e")
 text = "But   Even   if   You   die
 Your   progress   is   Safe"

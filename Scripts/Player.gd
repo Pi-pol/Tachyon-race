@@ -67,6 +67,8 @@ func _on_item_item_collected(Name):
 	print(Name)
 	if(inventory==""):
 		inventory=Name
+	elif (inventory == "fuel"):
+		inventory=Name
 	else:
 		print(inventory)
 		var world = get_node(".")

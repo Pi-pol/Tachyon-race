@@ -226,7 +226,7 @@ layer_0/tile_data = PackedInt32Array(65543, 65536, 0, 131079, 131072, 0, 16, 262
 script = ExtResource("6_04ypk")
 
 [node name="Player" parent="BaseTilemap" instance=ExtResource("5_uyt16")]
-position = Vector2(106, 102)
+position = Vector2(174, 224)
 script = ExtResource("10_77t2k")
 
 [node name="Camera2D" type="Camera2D" parent="BaseTilemap/Player"]
@@ -264,6 +264,7 @@ layer_0/tile_data = PackedInt32Array(327689, 0, 0, 393225, 0, 1, 327690, 65536, 
 script = ExtResource("4_fey4d")
 
 [node name="Button" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(176, 30)
 script = null
 
@@ -276,6 +277,7 @@ position = Vector2(-128, 10)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
 
 [node name="Reactor1" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(512, 480)
 scale = Vector2(1.62, 1)
 script = ExtResource("11_mhnym")
@@ -283,6 +285,7 @@ script = ExtResource("11_mhnym")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Reactor1"]
 
 [node name="Reactor2" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(672, 480)
 scale = Vector2(1.62, 1)
 script = ExtResource("11_mhnym")
@@ -290,72 +293,41 @@ script = ExtResource("11_mhnym")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Reactor2"]
 
 [node name="fuel1" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(688, 304)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel1"]
 
 [node name="fuel2" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(688, 112)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel2"]
 
 [node name="fuel3" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(496, 304)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel3"]
 
 [node name="fuel4" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(496, 112)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel4"]
 
+[connection signal="has_fuel" from="BaseTilemap/Player" to="Reactor1" method="_on_player_has_fuel"]
+[connection signal="has_fuel" from="BaseTilemap/Player" to="Reactor2" method="_on_player_has_fuel"]
 [connection signal="area_entered" from="Button/ActionFild" to="BaseTilemap/Furniture" method="_on_action_fild_area_entered"]
 [connection signal="area_entered" from="Button/ActionFild" to="DoorsTilemap" method="_on_action_fild_area_entered"]
 [connection signal="area_entered" from="Reactor1/ActionFild" to="BaseTilemap/Player" method="_on_action_fild_area_entered"]
 [connection signal="ItemPickupArea" from="fuel2" to="BaseTilemap/Player" method="_on_fuel_2_item_pickup_area"]
 [connection signal="ItemPickupArea" from="fuel3" to="BaseTilemap/Player" method="_on_fuel_3_item_pickup_area"]
 [connection signal="ItemPickupArea" from="fuel4" to="BaseTilemap/Player" method="_on_fuel_4_item_pickup_area"]
-[node name="Player" parent="." instance=ExtResource("5_uyt16")]
-position = Vector2(106, 102)
-script = ExtResource("10_77t2k")
-
-[node name="CollisionShape2D" parent="Player" index="1"]
-visible = false
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(4, 4)
-limit_left = -16
-limit_top = -16
-limit_right = 3000
-limit_bottom = 2000
-position_smoothing_enabled = true
-position_smoothing_speed = 18.0
-editor_draw_limits = true
-
-[node name="AnimationClock" type="AnimationPlayer" parent="Player/Camera2D"]
-libraries = {
-"": SubResource("AnimationLibrary_6w8fq")
-}
-
-[node name="ClockSp" type="Sprite2D" parent="Player/Camera2D"]
-position = Vector2(-86, -74)
-texture = ExtResource("6_utsja")
-hframes = 17
-frame = 16
-
-[node name="action_emmiter" parent="Player" instance=ExtResource("7_rfss7")]
-
-[node name="CollisionShape2D" parent="Player/action_emmiter" index="0"]
-visible = false
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_vkqj0")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
-stream = ExtResource("8_72jyi")
 
 [editable path="BaseTilemap/Player"]
 [editable path="BaseTilemap/Player/action_emmiter"]

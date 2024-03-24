@@ -1,5 +1,7 @@
 extends Node2D
 
+signal reactor_full()
+
 signal taken_fuel()
 
 @onready var fuel_in_inv = false
@@ -23,4 +25,5 @@ func _on_action_fild_area_entered(area):
 	if fuel_in_inv:
 		fuel_in_reactor += 1
 	if fuel_in_reactor >= 4:
+		reactor_full.emit()
 		print("yipee")

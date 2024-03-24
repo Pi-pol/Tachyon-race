@@ -1,9 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpowwrua7kmmu"]
+[gd_scene load_steps=19 format=3 uid="uid://dpowwrua7kmmu"]
 
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="1_xxkod"]
 [ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="2_4a3l7"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="3_pkiht"]
 [ext_resource type="Script" path="res://Scripts/Furniture.gd" id="4_gvhha"]
+[ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="5_ndkc4"]
+[ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="5_uyt16"]
+[ext_resource type="Script" path="res://Scenes/dorsRoom1.gd" id="6_bnxn1"]
+[ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="6_utsja"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="7_rfss7"]
+[ext_resource type="Script" path="res://Scenes/fuelRoom1.gd" id="8_8agxa"]
+[ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="8_72jyi"]
+[ext_resource type="Script" path="res://Scenes/fuel_loader.gd" id="11_mhnym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8u53"]
 texture = ExtResource("3_pkiht")
@@ -163,6 +171,46 @@ texture_region_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_f8u53")
 
+[sub_resource type="Animation" id="Animation_ekvhq"]
+resource_name = "ClockAnim"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5, 3.7, 5, 6.2, 7.5, 8.7, 10, 11.2, 12.6, 13.7, 15, 16.2, 17.5, 18.8, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_d61jl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w8fq"]
+_data = {
+"ClockAnim": SubResource("Animation_ekvhq"),
+"RESET": SubResource("Animation_d61jl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqj0"]
+size = Vector2(32, 32)
+
 [node name="Room1" type="Node2D"]
 
 [node name="BaseTilemap" parent="." instance=ExtResource("1_xxkod")]
@@ -176,3 +224,110 @@ tile_set = SubResource("TileSet_4rhrk")
 format = 2
 layer_0/tile_data = PackedInt32Array(65543, 65536, 0, 131079, 131072, 0, 16, 262144, 1, 12, 262144, 1, 8, 262144, 1, 4, 262144, 1, 589843, 196608, 1, 917523, 196608, 1, 65563, 327680, 2, 65565, 327680, 2, 1900576, 458752, 2, 1900586, 458752, 2, 1179679, 524288, 2, 1179691, 524288, 2, 393259, 524288, 2, 393247, 524288, 2, 31, 196608, 1, 43, 196608, 1, 1310744, 0, 1, 1572888, 0, 1, 1310769, 65536, 1, 1572913, 65536, 1, 2359345, 65536, 1, 2359320, 0, 1, 262168, 0, 1, 262193, 65536, 1, 65545, 65536, 0, 65547, 65536, 0, 65549, 65536, 0, 65551, 65536, 0, 65541, 65536, 0, 65553, 196608, 0, 65539, 458752, 0, 2, 196608, 2, 196627, 524288, 0, 262163, 524288, 0, 327699, 524288, 0, 393235, 589824, 0, 1310736, 720896, 1, 1310734, 655360, 1, 1179664, 720896, 0, 1179662, 655360, 0, 65581, 327680, 2, 65583, 327680, 2)
 script = ExtResource("4_gvhha")
+
+[node name="Button" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(176, 30)
+script = ExtResource("6_bnxn1")
+
+[node name="Sprite2D" parent="Button" index="0"]
+position = Vector2(-128, 10)
+
+[node name="ActionFild" parent="Button" index="1"]
+position = Vector2(-128, 10)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
+
+[node name="Reactor1" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(512, 480)
+scale = Vector2(1.62, 1)
+script = ExtResource("11_mhnym")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Reactor1"]
+
+[node name="Reactor2" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(672, 480)
+scale = Vector2(1.62, 1)
+script = ExtResource("11_mhnym")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Reactor2"]
+
+[node name="fuel1" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(688, 304)
+script = ExtResource("8_8agxa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel1"]
+
+[node name="fuel2" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(688, 112)
+script = ExtResource("8_8agxa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel2"]
+
+[node name="fuel3" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(496, 304)
+script = ExtResource("8_8agxa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel3"]
+
+[node name="fuel4" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
+position = Vector2(496, 112)
+script = ExtResource("8_8agxa")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel4"]
+
+[node name="Player" parent="." instance=ExtResource("5_uyt16")]
+position = Vector2(106, 102)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+limit_left = -16
+limit_top = -16
+limit_right = 3000
+limit_bottom = 2000
+position_smoothing_enabled = true
+position_smoothing_speed = 18.0
+editor_draw_limits = true
+
+[node name="AnimationClock" type="AnimationPlayer" parent="Player/Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_6w8fq")
+}
+
+[node name="ClockSp" type="Sprite2D" parent="Player/Camera2D"]
+position = Vector2(-86, -74)
+texture = ExtResource("6_utsja")
+hframes = 17
+frame = 16
+
+[node name="action_emmiter" parent="Player" instance=ExtResource("7_rfss7")]
+
+[node name="CollisionShape2D" parent="Player/action_emmiter" index="0"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_vkqj0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("8_72jyi")
+
+[editable path="Button"]
+[editable path="Button/ActionFild"]
+[editable path="Reactor1"]
+[editable path="Reactor1/ActionFild"]
+[editable path="Reactor2"]
+[editable path="Reactor2/ActionFild"]
+[editable path="fuel1"]
+[editable path="fuel1/ActionFild"]
+[editable path="fuel2"]
+[editable path="fuel2/ActionFild"]
+[editable path="fuel3"]
+[editable path="fuel3/ActionFild"]
+[editable path="fuel4"]
+[editable path="fuel4/ActionFild"]
+[editable path="Player"]
+[editable path="Player/action_emmiter"]

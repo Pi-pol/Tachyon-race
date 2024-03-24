@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
 [ext_resource type="Script" path="res://Scenes/fuel_loader.gd" id="7_3apam"]
 [ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
+[ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="Script" path="res://Scenes/wiredActionField.gd" id="7_j28ma"]
+[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="Script" path="res://Scenes/fuel_supply.gd" id="8_20lrw"]
 [ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
@@ -209,7 +212,6 @@ scale = Vector2(1, 1.46875)
 texture = ExtResource("2_40tig")
 
 [node name="wiredBox" parent="." instance=ExtResource("6_4hc3a")]
-visible = false
 position = Vector2(352, 60)
 script = ExtResource("6_2ra4e")
 
@@ -218,6 +220,7 @@ position = Vector2(-256, -20)
 
 [node name="ActionFild" parent="wiredBox" index="1"]
 position = Vector2(-256, -20)
+script = ExtResource("7_j28ma")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="wiredBox"]
 stream = ExtResource("5_pl653")

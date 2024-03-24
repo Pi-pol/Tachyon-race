@@ -4,9 +4,16 @@ const ACCELERATION = 2000
 const MAX_SPEED =300
 const FRICTION = 8000
 var inventory = ""
+
+
+@onready var steps = []
+@onready var time = 20
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
 func _physics_process(delta):
+	steps.append(position)
+	time -= delta
+	print(time)
 	var input_vector = Vector2.ZERO
 	input_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	input_vector = input_vector.normalized()
@@ -52,11 +59,15 @@ func _on_item_item_collected(Name):
 		var world = get_node(".")
 		var scene = load(inventory)
 		var object = scene.instantiate()
-		object.position = position + Vector2(0, -32)
+		object.position = position
 		world.add_sibling(object)
 		inventory = Name
 		object.itemCollected.connect(_on_item_item_collected)
 	print("After picking up")
 	print(inventory)
 	
-		
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		if event.keycode == KEY_K:
+			print("kys")
+	

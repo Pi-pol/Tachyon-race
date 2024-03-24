@@ -60,6 +60,7 @@ func _check_pushables(motion: Vector2) -> void:
 func _on_item_item_collected(Name):
 	print("Picked up")
 	$AudioStreamPlayer2D.play()
+	#print(Name)
 	if(inventory==""):
 		inventory=Name
 	else:
@@ -71,9 +72,9 @@ func _on_item_item_collected(Name):
 		world.add_sibling(object)
 		inventory = Name
 		object.itemCollected.connect(_on_item_item_collected)
-	print("After picking up")
-	print(inventory)
-	if inventory:
+	#print("After picking up")
+	#print(inventory)
+	if inventory == "res://Scenes/item.tscn":
 		has_keycard.emit(true)
 	else:
 		has_keycard.emit(false)

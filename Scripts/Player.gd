@@ -13,9 +13,10 @@ func _physics_process(delta):
 	
 	
 	if input_vector != Vector2.ZERO:
-		animationTree.set("parameters/idle/blend_position", input_vector)
+		animationTree.set
 		animationTree.set("parameters/run/blend_position", input_vector)
 		velocity = velocity.move_toward(input_vector*MAX_SPEED, ACCELERATION*delta)
+		print(input_vector)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO,FRICTION*delta)
 	move_and_slide()

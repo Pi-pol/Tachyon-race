@@ -70,4 +70,10 @@ func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_K:
 			print("kys")
+		elif event.keycode == KEY_ESCAPE:
+			var world = get_node(".")
+			#get_tree().change_scene_to_file("res://Scenes/settings.tscn")
+			var pause = load("res://Scenes/settings.tscn")
+			var object = pause.instantiate()
+			world.add_child(object)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=42 format=3 uid="uid://oo0vn7fcpglf"]
 
 [ext_resource type="Script" path="res://Scripts/1stlevel.gd" id="1_px6b5"]
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
@@ -7,10 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
 [ext_resource type="Script" path="res://fuel_loader.gd" id="7_3apam"]
 [ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="Script" path="res://wiredActionField.gd" id="7_j28ma"]
 [ext_resource type="Script" path="res://fuel_supply.gd" id="8_20lrw"]
-[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
 [ext_resource type="Script" path="res://Scripts/inventory_helper.gd" id="9_wuy8x"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="10_a3aqt"]
@@ -293,6 +294,18 @@ shape = SubResource("RectangleShape2D_84ht8")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TileMap/Player"]
 stream = ExtResource("10_iyrer")
 
+[node name="Text1Node7" type="Node2D" parent="."]
+position = Vector2(187, 464)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node7"]
+offset_left = 133.0
+offset_top = -369.0
+offset_right = 289.0
+offset_bottom = -303.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "But   Even   if   You   die
+Your   progress   is   Safe"
+
 [node name="DoorsTilemap" parent="." instance=ExtResource("8_k6orn")]
 layer_0/z_index = 1410065407
 layer_0/tile_data = PackedInt32Array(196614, 0, 1, 131079, 65536, 0, 196615, 65536, 1, 131080, 131072, 0, 196616, 131072, 1, 131078, 0, 0, 65543, 458752, 1, 262151, 458752, 1, 65542, 589824, 0, 262150, 589824, 0, 262152, 524288, 0, 65544, 524288, 0, 196624, 0, 1, 131089, 65536, 0, 196625, 65536, 1, 196626, 131072, 1, 131090, 131072, 0, 65552, 589824, 0, 65554, 524288, 0, 65553, 458752, 1, 262161, 458752, 1, 262162, 524288, 0, 262160, 589824, 0, 393233, 458752, 0, 131088, 0, 0)
@@ -300,9 +313,6 @@ script = ExtResource("9_qrhr4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DoorsTilemap"]
 stream = ExtResource("13_jtfjq")
-
-[node name="Text1Node2" type="Node2D" parent="."]
-position = Vector2(373, 169)
 
 [node name="Text1Node" type="Node2D" parent="."]
 position = Vector2(156, 52)
@@ -319,13 +329,47 @@ text = "Press   this   to   open   the   door"
 position = Vector2(82, 220)
 
 [node name="Text 1" type="RichTextLabel" parent="Text1Node3"]
-offset_left = -43.0
-offset_top = -58.0
-offset_right = 105.0
-offset_bottom = 8.0
+offset_left = -42.0
+offset_top = -173.0
+offset_right = 106.0
+offset_bottom = -107.0
 theme_override_fonts/normal_font = ExtResource("12_gps5e")
 text = "Use   the   arrows  to
                         move"
+
+[node name="Text1Node9" type="Node2D" parent="."]
+position = Vector2(81, 297)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node9"]
+offset_left = -44.0
+offset_top = -157.0
+offset_right = 104.0
+offset_bottom = -91.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "If   the   timer   runs   
+        out   You   \"die\""
+
+[node name="Text1Node4" type="Node2D" parent="."]
+position = Vector2(237, 460)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node4"]
+offset_left = 18.0
+offset_top = -461.0
+offset_right = 166.0
+offset_bottom = -395.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "Pickup   The   card"
+
+[node name="Text1Node5" type="Node2D" parent="."]
+position = Vector2(180, 357)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node5"]
+offset_left = 115.0
+offset_top = -345.0
+offset_right = 290.0
+offset_bottom = -279.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "And   Place   it   Here ->"
 
 [node name="item" parent="." instance=ExtResource("13_l8ngd")]
 position = Vector2(492, 110)
@@ -345,6 +389,28 @@ attenuation = 0.0
 visible = false
 position = Vector2(96, 96)
 scale = Vector2(0.6, 0.6)
+
+[node name="Text1Node8" type="Node2D" parent="."]
+position = Vector2(521, 494)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node8"]
+offset_left = 165.0
+offset_top = -328.0
+offset_right = 313.0
+offset_bottom = -262.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "Put the fuel here"
+
+[node name="Text1Node6" type="Node2D" parent="."]
+position = Vector2(553, 562)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node6"]
+offset_left = 165.0
+offset_top = -328.0
+offset_right = 313.0
+offset_bottom = -262.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "Pickup The fuel"
 
 [connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
 [connection signal="taken_fuel" from="ButtonGame4" to="TileMap/Player" method="_on_button_game_4_taken_fuel"]

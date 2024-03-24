@@ -15,16 +15,14 @@ signal cameraDead()
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
 @onready var animation_clock = $Camera2D/AnimationClock
-
+var target_position : Vector2 = Vector2(106.0, 102.0)
 func _physics_process(delta):
 	animation_clock.play("ClockAnim")
 	if time <= 0 and alive:
-		print("kms due to time")
+		position = target_position
+		
 		cameraDead.emit()
-		alive = false
-		if not alive:
-			
-			return
+		time = 20
 	steps.append(position)
 	time -= delta
 	#print(time)

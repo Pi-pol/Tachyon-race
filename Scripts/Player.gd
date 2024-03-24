@@ -54,5 +54,8 @@ func _on_item_item_collected(Name):
 		object.position = position
 		world.add_sibling(object)
 		inventory = Name
-		#object.position
+		object.itemCollected.connect(_on_item_item_collected)
+	print("After picking up")
+	print(inventory)
+	
 		

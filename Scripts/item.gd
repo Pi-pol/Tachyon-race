@@ -10,6 +10,7 @@ func _ready():
 	print(position)
 	print(get_parent())
 	time_since_dropped = 0
+	
 
 func _physics_process(delta):
 	time_since_dropped += delta

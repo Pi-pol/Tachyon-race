@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const ACCELERATION = 2000
-const MAX_SPEED =300
+const MAX_SPEED = 300
 const FRICTION = 8000
 var inventory = ""
 
@@ -16,7 +16,7 @@ func _physics_process(delta):
 		return
 	steps.append(position)
 	time -= delta
-	print(time)
+	#print(time)
 	var input_vector = Vector2.ZERO
 	input_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	input_vector = input_vector.normalized()

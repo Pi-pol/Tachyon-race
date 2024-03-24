@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://rrol7cm6mq6k"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_8c21b"]
+[ext_resource type="Texture2D" uid="uid://b54fjl61lbkhr" path="res://Assets/prop.png" id="2_1b5cl"]
+[ext_resource type="PackedScene" uid="uid://cy5giqpciqlg8" path="res://Scenes/action_fild.tscn" id="3_wvl26"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t1cs"]
+radius = 13.0
+
+[node name="item" type="Node2D"]
+script = ExtResource("1_8c21b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_1b5cl")
+
+[node name="ActionFild" parent="." instance=ExtResource("3_wvl26")]
+
+[node name="CollisionShape2D" parent="ActionFild" index="0"]
+shape = SubResource("CircleShape2D_6t1cs")
+
+[connection signal="area_entered" from="ActionFild" to="." method="_on_action_fild_area_entered"]
+
+[editable path="ActionFild"]

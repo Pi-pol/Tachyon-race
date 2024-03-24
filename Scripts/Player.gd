@@ -3,7 +3,7 @@ extends CharacterBody2D
 const ACCELERATION = 2000
 const MAX_SPEED =300
 const FRICTION = 8000
-
+var inventory = ""
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
 func _physics_process(delta):
@@ -29,6 +29,8 @@ func _physics_process(delta):
 		push_vel = input_vector.normalized()*150
 		_check_pushables(push_vel)
 
+
+
 func _check_pushables(motion: Vector2) -> void:
 	if abs(motion.x) + abs(motion.y) > 1:
 		return
@@ -37,5 +39,17 @@ func _check_pushables(motion: Vector2) -> void:
 		box.push(motion)
 		
 
-func _check_buttonables(motion: Vector2) -> void:
-	pass
+
+
+
+func _on_item_item_collected(Name):
+	if(inventory==""):
+		inventory=Name
+	else:
+		print(inventory)
+		var scene = load(inventory)
+		var object = scene.instantiate()
+		call_deferred("add_child",object)
+		get_tree().create_timer(6).timeout
+		
+		

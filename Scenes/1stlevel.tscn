@@ -1,17 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=21 format=3 uid="uid://oo0vn7fcpglf"]
 
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
-[ext_resource type="PackedScene" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
 [ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
 [ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
-[ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
-[ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
-[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="10_a3aqt"]
 [ext_resource type="Script" path="res://Scripts/Furniture.gd" id="11_a4r7w"]
 [ext_resource type="FontFile" uid="uid://cqsuld7mf6wi" path="res://Assets/ARCADECLASSIC.TTF" id="12_gps5e"]
+[ext_resource type="PackedScene" uid="uid://rrol7cm6mq6k" path="res://Scenes/item.tscn" id="13_l8ngd"]
 
 [sub_resource type="Shader" id="Shader_xmui1"]
 code = "shader_type canvas_item;
@@ -166,8 +167,24 @@ offset_bottom = 8.0
 theme_override_fonts/normal_font = ExtResource("12_gps5e")
 text = "Press   this   to   open   the   door"
 
+[node name="item" parent="." instance=ExtResource("13_l8ngd")]
+position = Vector2(492, 110)
+metadata/_edit_group_ = true
+
+[node name="item2" parent="." instance=ExtResource("13_l8ngd")]
+position = Vector2(626, 84)
+metadata/_edit_group_ = true
+
 [connection signal="door_button_pressed" from="ButtonGame" to="TileMap/Furniture" method="_on_button_game_door_button_pressed"]
 [connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
+[connection signal="itemCollected" from="item" to="TileMap/Player" method="_on_item_item_collected"]
+[connection signal="area_entered" from="item/ActionFild" to="TileMap/Player" method="_on_action_fild_area_entered"]
+[connection signal="itemCollected" from="item2" to="TileMap/Player" method="_on_item_item_collected"]
+[connection signal="area_entered" from="item2/ActionFild" to="TileMap/Player" method="_on_action_fild_area_entered"]
 
 [editable path="TileMap/Player"]
 [editable path="TileMap/Player/action_emmiter"]
+[editable path="item"]
+[editable path="item/ActionFild"]
+[editable path="item2"]
+[editable path="item2/ActionFild"]

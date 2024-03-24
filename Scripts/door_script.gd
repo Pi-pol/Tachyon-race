@@ -22,3 +22,5 @@ func _on_button_game_door_button_pressed():
 	set_cell(0, Vector2(8, 2), 0, Vector2(2, 2))
 	set_cell(0, Vector2(8, 3), 0, Vector2(2, 3))
 	
+
+	

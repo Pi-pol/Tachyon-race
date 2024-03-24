@@ -116,6 +116,7 @@ scale = Vector2(1, 1.46875)
 texture = ExtResource("2_40tig")
 
 [node name="ButtonGame" parent="." instance=ExtResource("6_4hc3a")]
+visible = false
 position = Vector2(176, 30)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ButtonGame"]

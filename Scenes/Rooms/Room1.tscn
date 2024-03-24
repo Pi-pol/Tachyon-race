@@ -264,6 +264,7 @@ layer_0/tile_data = PackedInt32Array(327689, 0, 0, 393225, 0, 1, 327690, 65536, 
 script = ExtResource("4_fey4d")
 
 [node name="Button" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(176, 30)
 script = null
 
@@ -276,6 +277,7 @@ position = Vector2(-128, 10)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Button"]
 
 [node name="Reactor1" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(512, 480)
 scale = Vector2(1.62, 1)
 script = ExtResource("11_mhnym")
@@ -283,6 +285,7 @@ script = ExtResource("11_mhnym")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Reactor1"]
 
 [node name="Reactor2" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(672, 480)
 scale = Vector2(1.62, 1)
 script = ExtResource("11_mhnym")
@@ -290,24 +293,28 @@ script = ExtResource("11_mhnym")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Reactor2"]
 
 [node name="fuel1" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(688, 304)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel1"]
 
 [node name="fuel2" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(688, 112)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel2"]
 
 [node name="fuel3" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(496, 304)
 script = ExtResource("8_8agxa")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="fuel3"]
 
 [node name="fuel4" parent="." instance=ExtResource("5_ndkc4")]
+visible = false
 position = Vector2(496, 112)
 script = ExtResource("8_8agxa")
 

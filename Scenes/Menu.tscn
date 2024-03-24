@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cuk36uxe0lpk3"]
+[gd_scene load_steps=14 format=3 uid="uid://cuk36uxe0lpk3"]
 
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_lvx0o"]
 [ext_resource type="Texture2D" uid="uid://c0d2kdvjrs2qg" path="res://Assets/main_background1.png" id="2_kv0ed"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c36p4it6g1dw7" path="res://Assets/main_background5.png" id="6_h3jq7"]
 [ext_resource type="Texture2D" uid="uid://dxjgpq1giino6" path="res://Assets/main_background6.png" id="7_fba8g"]
 [ext_resource type="Texture2D" uid="uid://cbrahutr6gm2n" path="res://Assets/main_background7.png" id="8_5slng"]
+[ext_resource type="Texture2D" uid="uid://cksaxmd0jykex" path="res://Assets/main_background12.png" id="9_3t7sd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_58nui"]
 animations = [{
@@ -49,10 +50,10 @@ animations = [{
 "texture": ExtResource("8_5slng")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_fba8g")
+"texture": ExtResource("9_3t7sd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_h3jq7")
+"texture": ExtResource("2_kv0ed")
 }],
 "loop": true,
 "name": &"default",
@@ -79,7 +80,7 @@ script = ExtResource("1_lvx0o")
 position = Vector2(540, -1.00004)
 scale = Vector2(0.5625, 0.668518)
 sprite_frames = SubResource("SpriteFrames_58nui")
-frame_progress = 0.338692
+frame_progress = 0.126502
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1

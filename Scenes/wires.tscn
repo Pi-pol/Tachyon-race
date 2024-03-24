@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://oam176p0dnbq"]
+[gd_scene load_steps=3 format=3 uid="uid://bw361al6qkycv"]
 
 [ext_resource type="Script" path="res://Scripts/wires.gd" id="1_5lula"]
-[ext_resource type="Texture2D" uid="uid://dphiepybej17n" path="res://Assets/cables.png" id="2_ucbcg"]
+[ext_resource type="Texture2D" uid="uid://pn2qa1s0ydu1" path="res://Assets/cables.png" id="2_ucbcg"]
 
 [node name="Area2D" type="Area2D"]
 light_mask = 2

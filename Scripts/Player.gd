@@ -13,7 +13,10 @@ signal has_fuel(bool)
 @onready var time = 20
 @onready var animationTree =$AnimationTree
 @onready var anim_state =animationTree.get("parameters/playback")
+@onready var animation_clock = $Camera2D/AnimationClock
+
 func _physics_process(delta):
+	animation_clock.play("ClockAnim")
 	if time <= 0 and alive:
 		print("kms due to time")
 		alive = false

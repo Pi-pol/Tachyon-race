@@ -171,8 +171,6 @@ _data = {
 "RunUp": SubResource("Animation_cr1su")
 }
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_lrptc"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b4qwb"]
 animation = &"IdleLeft"
 
@@ -219,21 +217,20 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_ajsft")
 blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g1kc5"]
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_61l1k"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ibtu1"]
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h5mdu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_17ta4"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mgcff"]
-states/Run/node = SubResource("AnimationNodeStateMachine_lrptc")
-states/Run/position = Vector2(933, 186)
-states/Start/position = Vector2(102, 132)
+states/End/position = Vector2(521, 132)
+states/Start/position = Vector2(92, 132)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_pyhcy")
 states/idle/position = Vector2(259, 132)
 states/run/node = SubResource("AnimationNodeBlendSpace2D_joqjr")
-states/run/position = Vector2(397, 132)
-transitions = ["idle", "run", SubResource("AnimationNodeStateMachineTransition_g1kc5"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_ibtu1")]
+states/run/position = Vector2(391, 132)
+transitions = ["idle", "run", SubResource("AnimationNodeStateMachineTransition_61l1k"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h5mdu"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_17ta4")]
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(77, 55)
@@ -261,5 +258,5 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_mgcff")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle/blend_position = Vector2(-0.00595236, 0.0220264)
-parameters/run/blend_position = Vector2(-0.0277778, -0.38326)
+parameters/idle/blend_position = Vector2(0.126984, -0.374449)
+parameters/run/blend_position = Vector2(-0.107143, -0.621145)

@@ -6,12 +6,12 @@
 [ext_resource type="Script" path="res://Scripts/Furniture.gd" id="4_gvhha"]
 [ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="5_ndkc4"]
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="5_uyt16"]
-[ext_resource type="Script" path="res://Scenes/dorsRoom1.gd" id="6_bnxn1"]
+[ext_resource type="Script" path="res://dorsRoom1.gd" id="6_bnxn1"]
 [ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="6_utsja"]
 [ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="7_rfss7"]
-[ext_resource type="Script" path="res://Scenes/fuelRoom1.gd" id="8_8agxa"]
+[ext_resource type="Script" path="res://fuelRoom1.gd" id="8_8agxa"]
 [ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="8_72jyi"]
-[ext_resource type="Script" path="res://Scenes/fuel_loader.gd" id="11_mhnym"]
+[ext_resource type="Script" path="res://fuel_loader.gd" id="11_mhnym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8u53"]
 texture = ExtResource("3_pkiht")

@@ -43,13 +43,16 @@ func _check_pushables(motion: Vector2) -> void:
 
 
 func _on_item_item_collected(Name):
+	print("Picked up")
 	if(inventory==""):
 		inventory=Name
 	else:
 		print(inventory)
+		var world = get_node(".")
 		var scene = load(inventory)
 		var object = scene.instantiate()
-		call_deferred("add_child",object)
-		get_tree().create_timer(6).timeout
-		
+		object.position = position
+		world.add_sibling(object)
+		inventory = Name
+		#object.position
 		

@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=33 format=3 uid="uid://oo0vn7fcpglf"]
 
-[ext_resource type="Script" path="res://Scenes/1stlevel.gd" id="1_px6b5"]
+[ext_resource type="Script" path="res://Scripts/1stlevel.gd" id="1_px6b5"]
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
 [ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
@@ -10,17 +10,18 @@
 [ext_resource type="Script" path="res://Scenes/wiredBox.gd" id="6_2ra4e"]
 [ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
 [ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
-[ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
-[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="10_a3aqt"]
 [ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="10_iyrer"]
 [ext_resource type="Script" path="res://Scripts/Furniture.gd" id="11_a4r7w"]
 [ext_resource type="FontFile" uid="uid://cqsuld7mf6wi" path="res://Assets/ARCADECLASSIC.TTF" id="12_gps5e"]
+[ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="12_oajyf"]
 [ext_resource type="AudioStream" uid="uid://bmmbw504m5ym0" path="res://Assets/SFX/door.wav" id="13_jtfjq"]
-[ext_resource type="PackedScene" path="res://Scenes/item.tscn" id="13_l8ngd"]
+[ext_resource type="PackedScene" uid="uid://bobhlkyxttsem" path="res://Scenes/item.tscn" id="13_l8ngd"]
 [ext_resource type="AudioStream" uid="uid://sdot0hbnwsdv" path="res://Assets/SFX/theme.wav" id="18_8dxdt"]
-[ext_resource type="PackedScene" uid="uid://bw361al6qkycv" path="res://Scenes/wires.tscn" id="19_tsrxe"]
+[ext_resource type="PackedScene" uid="uid://oam176p0dnbq" path="res://Scenes/wires.tscn" id="19_tsrxe"]
 
 [sub_resource type="Shader" id="Shader_xmui1"]
 code = "shader_type canvas_item;
@@ -85,6 +86,43 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_3kl0b"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_d3sn0")
+
+[sub_resource type="Animation" id="Animation_ekvhq"]
+resource_name = "ClockAnim"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5, 3.7, 5, 6.2, 7.5, 8.7, 10, 11.2, 12.6, 13.7, 15, 16.2, 17.5, 18.8, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_d61jl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClockSp:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w8fq"]
+_data = {
+"ClockAnim": SubResource("Animation_ekvhq"),
+"RESET": SubResource("Animation_d61jl")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84ht8"]
 size = Vector2(32, 32)
@@ -166,6 +204,16 @@ limit_bottom = 2000
 position_smoothing_enabled = true
 position_smoothing_speed = 18.0
 editor_draw_limits = true
+
+[node name="AnimationClock" type="AnimationPlayer" parent="TileMap/Player/Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_6w8fq")
+}
+
+[node name="ClockSp" type="Sprite2D" parent="TileMap/Player/Camera2D"]
+texture = ExtResource("12_oajyf")
+hframes = 17
+frame = 16
 
 [node name="action_emmiter" parent="TileMap/Player" instance=ExtResource("2_pu3r0")]
 

@@ -73,4 +73,10 @@ func _input(event):
 			$AnimationPlayer.play("Kys")
 			
 			
+		elif event.keycode == KEY_ESCAPE:
+			var world = get_node(".")
+			#get_tree().change_scene_to_file("res://Scenes/settings.tscn")
+			var pause = load("res://Scenes/settings.tscn")
+			var object = pause.instantiate()
+			world.add_child(object)
 	

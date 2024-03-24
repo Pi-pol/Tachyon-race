@@ -6,6 +6,7 @@ const FRICTION = 8000
 var inventory = ""
 
 signal has_keycard(bool)
+signal has_fuel(bool)
 
 @onready var alive = true
 @onready var steps = []
@@ -60,9 +61,12 @@ func _check_pushables(motion: Vector2) -> void:
 func _on_item_item_collected(Name):
 	print("Picked up")
 	$AudioStreamPlayer2D.play()
-	#print(Name)
+	print(Name)
 	if(inventory==""):
 		inventory=Name
+	elif (inventory == "fuel"):
+		inventory=Name
+		has_fuel.emit(false)
 	else:
 		print(inventory)
 		var world = get_node(".")
@@ -72,12 +76,15 @@ func _on_item_item_collected(Name):
 		world.add_sibling(object)
 		inventory = Name
 		object.itemCollected.connect(_on_item_item_collected)
-	#print("After picking up")
-	#print(inventory)
 	if inventory == "res://Scenes/item.tscn":
 		has_keycard.emit(true)
 	else:
 		has_keycard.emit(false)
+		
+	if inventory == "fuel":
+		has_fuel.emit(true)
+	else:
+		has_fuel.emit(false)
 
 
 func _input(event):
@@ -93,4 +100,14 @@ func _input(event):
 			var pause = load("res://Scenes/pauseMenu.gtscn")
 			var object = pause.instantiate()
 			world.add_child(object)
+
+
+func _on_button_game_3_item_pickup_area():
+	print("fuel pickup")
+	_on_item_item_collected("fuel") # Replace with function body.
+
+
+func _on_button_game_4_taken_fuel():
+	if inventory == "fuel":
+		inventory = ""
 	

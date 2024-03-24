@@ -1,9 +1,63 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuk36uxe0lpk3"]
+[gd_scene load_steps=13 format=3 uid="uid://cuk36uxe0lpk3"]
 
 [ext_resource type="Script" path="res://Scripts/mainMenu.gd" id="1_lvx0o"]
+[ext_resource type="Texture2D" uid="uid://c0d2kdvjrs2qg" path="res://Assets/main_background1.png" id="2_kv0ed"]
 [ext_resource type="Texture2D" uid="uid://ei1yfdgx1ayu" path="res://Assets/Button PLAY.png" id="2_mqlq1"]
+[ext_resource type="Texture2D" uid="uid://dqyrusrxr6hml" path="res://Assets/main_background2.png" id="3_f1k17"]
 [ext_resource type="Texture2D" uid="uid://brmsngqtkm3bi" path="res://Assets/Button SETTINGS.png" id="3_vlf2a"]
+[ext_resource type="Texture2D" uid="uid://fpsvbewqulc" path="res://Assets/main_background3.png" id="4_03sbg"]
 [ext_resource type="Texture2D" uid="uid://cs4gufkpoji2c" path="res://Assets/Button EXIT.png" id="4_bhuiv"]
+[ext_resource type="Texture2D" uid="uid://b4s36flp1xwrj" path="res://Assets/main_background4.png" id="5_puy53"]
+[ext_resource type="Texture2D" uid="uid://c36p4it6g1dw7" path="res://Assets/main_background5.png" id="6_h3jq7"]
+[ext_resource type="Texture2D" uid="uid://dxjgpq1giino6" path="res://Assets/main_background6.png" id="7_fba8g"]
+[ext_resource type="Texture2D" uid="uid://cbrahutr6gm2n" path="res://Assets/main_background7.png" id="8_5slng"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dcfm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kv0ed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1k17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_03sbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_puy53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kv0ed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f1k17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_03sbg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_puy53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h3jq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fba8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5slng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h3jq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h3jq7")
+}],
+"loop": false,
+"name": &"menu",
+"speed": 3.97
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -16,6 +70,17 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_lvx0o")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(544, 3.05176e-05)
+scale = Vector2(0.566667, 0.666667)
+sprite_frames = SubResource("SpriteFrames_2dcfm")
+animation = &"menu"
+frame = 12
+frame_progress = 1.0
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1

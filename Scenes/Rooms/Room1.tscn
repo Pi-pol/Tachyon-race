@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dpowwrua7kmmu"]
+[gd_scene load_steps=20 format=3 uid="uid://dpowwrua7kmmu"]
 
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="1_xxkod"]
 [ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="2_4a3l7"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="7_rfss7"]
 [ext_resource type="Script" path="res://fuelRoom1.gd" id="8_8agxa"]
 [ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="8_72jyi"]
+[ext_resource type="Script" path="res://Scenes/playerRoom1.gd" id="10_77t2k"]
 [ext_resource type="Script" path="res://fuel_loader.gd" id="11_mhnym"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8u53"]
@@ -284,6 +285,7 @@ script = ExtResource("8_8agxa")
 
 [node name="Player" parent="." instance=ExtResource("5_uyt16")]
 position = Vector2(106, 102)
+script = ExtResource("10_77t2k")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)

@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmqojldqkl75r"]
+
+[ext_resource type="Script" path="res://Scripts/settingsMenu.gd" id="1_3ejb5"]
+[ext_resource type="Texture2D" uid="uid://drblo1n0slgfm" path="res://Assets/Button BACK.png" id="2_lp6qs"]
+[ext_resource type="Shader" path="res://Scenes/pauseMenu.gdshader" id="3_ow0cj"]
+[ext_resource type="AudioStream" uid="uid://cxg7huksqigjn" path="res://Assets/palmtree-panic-p-mix-sonic-the-hedgehog-cd-slowed-reverb-made-with-Voicemod.mp3" id="3_sh664"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bnglk"]
+shader = ExtResource("3_ow0cj")
+shader_parameter/lod = 0.0
+
+[sub_resource type="GDScript" id="GDScript_5gbfl"]
+script/source = "extends HSlider
+@export 
+var Master : String
+
+var bus_index: int
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	bus_index = AudioServer.get_bus_index(Master)
+	value_changed.connect(_on_value_changed)
+	
+	value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+	
+func _on_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(
+		bus_index,
+		linear_to_db(value)
+	)
+	print(value)
+"
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchor_left = 0.407
+anchor_top = 0.4
+anchor_right = 0.593
+anchor_bottom = 0.611
+offset_left = 100.44
+offset_top = 72.0
+offset_right = -100.44
+offset_bottom = -79.92
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_3ejb5")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="PanelContainer"]
+stream = ExtResource("3_sh664")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer"]
+material = SubResource("ShaderMaterial_bnglk")
+layout_mode = 2
+
+[node name="containers" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+
+[node name="CheckButton" type="HBoxContainer" parent="PanelContainer/containers"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="PanelContainer/containers/CheckButton"]
+visible = false
+layout_mode = 2
+text = "Fullscreen
+"
+
+[node name="CheckButton" type="CheckButton" parent="PanelContainer/containers/CheckButton"]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="resolutionsOptionButton" type="OptionButton" parent="PanelContainer/containers"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/containers"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="master" type="HSlider" parent="PanelContainer/containers"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+script = SubResource("GDScript_5gbfl")
+
+[node name="backToMenu" type="Button" parent="PanelContainer/containers"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+icon = ExtResource("2_lp6qs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer"]
+root_node = NodePath("../containers")
+
+[connection signal="toggled" from="PanelContainer/containers/CheckButton/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="item_selected" from="PanelContainer/containers/resolutionsOptionButton" to="." method="_on_resolutions_option_button_item_selected"]
+[connection signal="value_changed" from="PanelContainer/containers/master" to="." method="_on_master_value_changed"]
+[connection signal="pressed" from="PanelContainer/containers/backToMenu" to="." method="_on_back_to_menu_pressed"]

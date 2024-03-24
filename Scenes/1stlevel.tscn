@@ -6,17 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
 [ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
 [ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
-[ext_resource type="AudioStream" uid="uid://c4v3345i5mcrw" path="res://Assets/SFX/button.wav" id="5_pl653"]
-[ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
-[ext_resource type="Script" path="res://Scenes/fuel_loader.gd" id="7_3apam"]
-[ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
-[ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
-[ext_resource type="Script" path="res://Scenes/fuel_supply.gd" id="8_20lrw"]
-[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="AudioStream" path="res://Assets/SFX/button.wav" id="5_pl653"]
 [ext_resource type="Script" path="res://Scenes/wiredBox.gd" id="6_2ra4e"]
 [ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+[ext_resource type="Script" path="res://Scenes/fuel_loader.gd" id="7_3apam"]
 [ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
 [ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="Script" path="res://Scenes/fuel_supply.gd" id="8_20lrw"]
 [ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
 [ext_resource type="Script" path="res://Scripts/inventory_helper.gd" id="9_wuy8x"]
@@ -286,6 +282,7 @@ libraries = {
 }
 
 [node name="ClockSp" type="Sprite2D" parent="TileMap/Player/Camera2D"]
+position = Vector2(-86, -74)
 texture = ExtResource("12_oajyf")
 hframes = 17
 frame = 16
@@ -337,7 +334,6 @@ scale = Vector2(0.6, 0.6)
 
 [connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
 [connection signal="taken_fuel" from="ButtonGame4" to="TileMap/Player" method="_on_button_game_4_taken_fuel"]
-[connection signal="door_button2_pressed" from="ButtonGame2" to="TileMap/Furniture" method="_on_button_game_2_door_button_2_pressed"]
 [connection signal="ItemPickupArea" from="ButtonGame3" to="TileMap/Player" method="_on_button_game_3_item_pickup_area"]
 [connection signal="has_fuel" from="TileMap/Player" to="ButtonGame4" method="_on_player_has_fuel"]
 [connection signal="has_keycard" from="TileMap/Player" to="ButtonGame2" method="_on_player_has_keycard"]

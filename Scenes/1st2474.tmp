@@ -1,0 +1,270 @@
+[gd_scene load_steps=32 format=3 uid="uid://oo0vn7fcpglf"]
+
+[ext_resource type="Script" path="res://Scenes/1stlevel.gd" id="1_px6b5"]
+[ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
+[ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
+[ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
+[ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
+[ext_resource type="AudioStream" uid="uid://c4v3345i5mcrw" path="res://Assets/SFX/button.wav" id="5_pl653"]
+[ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+[ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
+[ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="10_a3aqt"]
+[ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="10_iyrer"]
+[ext_resource type="Script" path="res://Scripts/Furniture.gd" id="11_a4r7w"]
+[ext_resource type="FontFile" uid="uid://cqsuld7mf6wi" path="res://Assets/ARCADECLASSIC.TTF" id="12_gps5e"]
+[ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="12_oajyf"]
+[ext_resource type="AudioStream" uid="uid://bmmbw504m5ym0" path="res://Assets/SFX/door.wav" id="13_jtfjq"]
+[ext_resource type="PackedScene" uid="uid://bobhlkyxttsem" path="res://Scenes/item.tscn" id="13_l8ngd"]
+[ext_resource type="AudioStream" uid="uid://sdot0hbnwsdv" path="res://Assets/SFX/theme.wav" id="18_8dxdt"]
+[ext_resource type="PackedScene" uid="uid://oam176p0dnbq" path="res://Scenes/wires.tscn" id="19_tsrxe"]
+
+[sub_resource type="Shader" id="Shader_xmui1"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h14jk"]
+shader = SubResource("Shader_xmui1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cajd"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60p0f"]
+size = Vector2(32, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3sn0"]
+texture = ExtResource("10_a3aqt")
+texture_region_size = Vector2i(32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+8:0/0 = 0
+8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:0/0/physics_layer_0/angular_velocity = 0.0
+9:0/0 = 0
+9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_3kl0b"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_d3sn0")
+
+[sub_resource type="Animation" id="Animation_y0c5d"]
+resource_name = "cuntdown"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 2.5, 3.7, 5, 6.2, 7.5, 8.7, 10, 11.2, 12.5, 13.7, 15, 16.2, 17.5, 18.7, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+}
+
+[sub_resource type="Animation" id="Animation_ppkvn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eimob"]
+_data = {
+"RESET": SubResource("Animation_ppkvn"),
+"cuntdown": SubResource("Animation_y0c5d")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84ht8"]
+size = Vector2(32, 32)
+
+[node name="1Stlevel" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_px6b5")
+
+[node name="Pudelko" type="CharacterBody2D" parent="."]
+position = Vector2(281, 274)
+script = ExtResource("3_fsm57")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pudelko"]
+material = SubResource("ShaderMaterial_h14jk")
+texture = ExtResource("2_xif6h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pudelko"]
+scale = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_0cajd")
+
+[node name="jakiśKamień" type="StaticBody2D" parent="."]
+position = Vector2(450, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jakiśKamień"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_60p0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="jakiśKamień"]
+position = Vector2(-220, 189)
+scale = Vector2(1, 1.46875)
+texture = ExtResource("2_40tig")
+
+[node name="ButtonGame" parent="." instance=ExtResource("6_4hc3a")]
+visible = false
+position = Vector2(176, 30)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ButtonGame"]
+stream = ExtResource("5_pl653")
+
+[node name="ButtonGame2" parent="." instance=ExtResource("6_4hc3a")]
+position = Vector2(463, 32)
+script = ExtResource("7_6f5of")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ButtonGame2"]
+stream = ExtResource("5_pl653")
+
+[node name="TileMap" parent="." instance=ExtResource("7_fkt6h")]
+layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 131077, 0, 0, 131076, 0, 0, 131074, 0, 0, 131075, 0, 0, 131073, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196613, 0, 0, 196612, 0, 0, 262145, 0, 0, 262146, 0, 0, 262148, 0, 0, 262147, 0, 0, 262149, 0, 0, 0, 65536, 2, 1, 196608, 4, 2, 196608, 4, 3, 196608, 4, 5, 196608, 4, 4, 196608, 4, 65536, 196608, 2, 131072, 196608, 2, 196608, 196608, 2, 262144, 196608, 2, 327680, 196608, 0, 327681, 262144, 4, 327682, 262144, 4, 327683, 262144, 4, 327684, 262144, 4, 327685, 262144, 4, 327686, 262144, 0, 262150, 262144, 2, 196614, 0, 0, 65542, 262144, 2, 6, 393216, 1, 131078, 0, 0, 131079, 0, 0, 196615, 0, 0, 196616, 0, 0, 131080, 0, 0, 65543, 65536, 8, 7, 65536, 8, 262151, 65536, 8, 327687, 65536, 8, 393223, 196608, 9, 393222, 262144, 1, 393221, 262144, 5, 393220, 262144, 5, 393218, 262144, 5, 393219, 262144, 5, 393217, 262144, 5, 393216, 196608, 1, 458751, 131072, 1, 393215, 131072, 0, 327679, 131072, 2, 262143, 131072, 2, 196607, 131072, 2, 131071, 131072, 2, 65535, 0, 2, -1, 0, 1, -65536, 65536, 1, -65535, 196608, 3, -65534, 196608, 3, -65533, 196608, 3, -65532, 196608, 3, -65531, 196608, 3, -65530, 393216, 0, -65529, 65536, 9, 8, 65536, 2, 65544, 196608, 2, 262152, 196608, 2, 327688, 196608, 0, 393224, 196608, 1, 393225, 262144, 5, 393226, 262144, 5, 393228, 262144, 5, 393227, 262144, 5, 393229, 262144, 5, -65528, 196608, 3, -65527, 196608, 3, -65525, 196608, 3, -65526, 196608, 3, -65524, 196608, 3, -65523, 196608, 3, -65522, 196608, 3, 327689, 262144, 4, 262153, 0, 0, 196617, 0, 0, 131081, 0, 0, 65545, 0, 0, 9, 196608, 4, 10, 196608, 4, 11, 196608, 4, 12, 196608, 4, 13, 196608, 4, 14, 196608, 4, 15, 196608, 4, 65551, 0, 0, 131086, 0, 0, 196622, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 262144, 4, 327694, 262144, 4, 262158, 0, 0, 131087, 0, 0, 65550, 0, 0, 65549, 0, 0, 65548, 0, 0, 65547, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 327690, 262144, 4, 327691, 262144, 4, 327692, 262144, 4, 327693, 262144, 4, 262157, 0, 0, 196621, 0, 0, 131085, 0, 0, 131084, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 262156, 0, 0, 196620, 0, 0, 393230, 262144, 5, 393231, 262144, 5, 327696, 262144, 0, 393233, 327680, 1, 393232, 262144, 1, -65521, 196608, 3)
+
+[node name="Furniture" type="TileMap" parent="TileMap"]
+tile_set = SubResource("TileSet_3kl0b")
+format = 2
+layer_0/tile_data = PackedInt32Array(131075, 131073, 0, 65539, 65537, 0, 65542, 196609, 0, 65547, 393217, 0)
+script = ExtResource("11_a4r7w")
+
+[node name="Player" parent="TileMap" instance=ExtResource("1_y7u1b")]
+position = Vector2(106, 102)
+
+[node name="Camera2D" type="Camera2D" parent="TileMap/Player"]
+zoom = Vector2(4, 4)
+limit_left = -16
+limit_top = -16
+limit_right = 3000
+limit_bottom = 2000
+position_smoothing_enabled = true
+position_smoothing_speed = 18.0
+editor_draw_limits = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMap/Player/Camera2D"]
+position = Vector2(0, -73)
+texture = ExtResource("12_oajyf")
+hframes = 17
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="TileMap/Player/Camera2D"]
+libraries = {
+"": SubResource("AnimationLibrary_eimob")
+}
+
+[node name="action_emmiter" parent="TileMap/Player" instance=ExtResource("2_pu3r0")]
+
+[node name="CollisionShape2D" parent="TileMap/Player/action_emmiter" index="0"]
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_84ht8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TileMap/Player"]
+stream = ExtResource("10_iyrer")
+
+[node name="DoorsTilemap" parent="." instance=ExtResource("8_k6orn")]
+layer_0/z_index = 1410065407
+layer_0/tile_data = PackedInt32Array(196614, 0, 1, 131079, 65536, 0, 196615, 65536, 1, 131080, 131072, 0, 196616, 131072, 1, 131078, 0, 0, 65543, 458752, 1, 262151, 458752, 1, 65542, 589824, 0, 262150, 589824, 0, 262152, 524288, 0, 65544, 524288, 0)
+script = ExtResource("9_qrhr4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DoorsTilemap"]
+stream = ExtResource("13_jtfjq")
+
+[node name="Text1Node2" type="Node2D" parent="."]
+position = Vector2(373, 169)
+
+[node name="Text1Node" type="Node2D" parent="."]
+position = Vector2(156, 52)
+
+[node name="Text 1" type="RichTextLabel" parent="Text1Node"]
+offset_left = -43.0
+offset_top = -58.0
+offset_right = 105.0
+offset_bottom = 8.0
+theme_override_fonts/normal_font = ExtResource("12_gps5e")
+text = "Press   this   to   open   the   door"
+
+[node name="item" parent="." instance=ExtResource("13_l8ngd")]
+position = Vector2(492, 110)
+metadata/_edit_group_ = true
+
+[node name="item2" parent="." instance=ExtResource("13_l8ngd")]
+position = Vector2(626, 84)
+metadata/_edit_group_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_8dxdt")
+autoplay = true
+attenuation = 0.0
+
+[node name="Wires" parent="." instance=ExtResource("19_tsrxe")]
+visible = false
+position = Vector2(96, 96)
+scale = Vector2(0.6, 0.6)
+
+[connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
+[connection signal="door_button_pressed" from="ButtonGame2" to="TileMap/Furniture" method="_on_button_game_door_button_pressed"]
+[connection signal="door_button_pressed" from="ButtonGame2" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
+[connection signal="itemCollected" from="item" to="TileMap/Player" method="_on_item_item_collected"]
+[connection signal="area_entered" from="item/ActionFild" to="TileMap/Player" method="_on_action_fild_area_entered"]
+[connection signal="itemCollected" from="item2" to="TileMap/Player" method="_on_item_item_collected"]
+[connection signal="area_entered" from="item2/ActionFild" to="TileMap/Player" method="_on_action_fild_area_entered"]
+
+[editable path="ButtonGame"]
+[editable path="ButtonGame/ActionFild"]
+[editable path="ButtonGame2"]
+[editable path="ButtonGame2/ActionFild"]
+[editable path="TileMap/Player"]
+[editable path="TileMap/Player/action_emmiter"]
+[editable path="item"]
+[editable path="item/ActionFild"]
+[editable path="item2"]
+[editable path="item2/ActionFild"]

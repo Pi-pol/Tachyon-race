@@ -65,9 +65,12 @@ func _on_item_item_collected(Name):
 		object.itemCollected.connect(_on_item_item_collected)
 	print("After picking up")
 	print(inventory)
-	
+
+
 func _input(event):
 	if event is InputEventKey and event.is_pressed():
 		if event.keycode == KEY_K:
-			print("kys")
+			$AnimationPlayer.play("Kys")
+			
+			
 	

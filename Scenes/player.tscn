@@ -233,17 +233,17 @@ states/run/position = Vector2(391, 132)
 transitions = ["idle", "run", SubResource("AnimationNodeStateMachineTransition_61l1k"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_h5mdu"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_17ta4")]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(77, 55)
+position = Vector2(113, 58)
 script = ExtResource("1_w5a3e")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
 texture = ExtResource("2_ex3nf")
 hframes = 16
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_r6njw")
 

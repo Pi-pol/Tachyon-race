@@ -7,6 +7,7 @@ var settings_file = "settings.json"
 var whole_settings = {"fullscreen": false, "volume": 1, "resolution": 0}
 
 
+
 func add_items():
 	drop_down_menu.add_item("1280x720")
 	drop_down_menu.add_item("1600x900")

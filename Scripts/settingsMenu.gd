@@ -1,6 +1,9 @@
 extends Control
 
 @onready var drop_down_menu = $containers/resolutionsOptionButton
+@onready var MASTER_BUS_ID = AudioServer.get_bus_index("Master")
+
+
 
 func add_items():
 	drop_down_menu.add_item("1280x720")
@@ -37,3 +40,11 @@ func _on_resolutions_option_button_item_selected(index):
 		get_window().size = Vector2i(1600,900)
 	elif current_selected == 2:
 		get_window().size = Vector2i(1920,1080)
+
+
+func _on_master_value_changed(value):
+	var volume = linear_to_db(value)
+	AudioServer.set_bus_volume_db(0, volume)
+	AudioServer.set_bus_mute(0, value < 0.05)
+	
+	

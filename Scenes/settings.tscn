@@ -1,8 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck7iwj3gwqadw"]
+[gd_scene load_steps=5 format=3 uid="uid://ck7iwj3gwqadw"]
 
 [ext_resource type="Script" path="res://Scripts/settingsMenu.gd" id="1_jmmgr"]
-[ext_resource type="Script" path="res://Scripts/masterVolume.gd" id="2_artx6"]
 [ext_resource type="Texture2D" uid="uid://drblo1n0slgfm" path="res://Assets/Button BACK.png" id="3_le7ej"]
+[ext_resource type="AudioStream" uid="uid://cxg7huksqigjn" path="res://Assets/palmtree-panic-p-mix-sonic-the-hedgehog-cd-slowed-reverb-made-with-Voicemod.mp3" id="4_wq7ce"]
+
+[sub_resource type="GDScript" id="GDScript_5gbfl"]
+script/source = "extends HSlider
+@export 
+var Master : String
+
+var bus_index: int
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	bus_index = AudioServer.get_bus_index(Master)
+	value_changed.connect(_on_value_changed)
+	
+	value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
+	
+func _on_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(
+		bus_index,
+		linear_to_db(value)
+	)
+	print(value)
+"
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -54,7 +76,8 @@ text = "Master Volume"
 layout_mode = 2
 max_value = 1.0
 step = 0.001
-script = ExtResource("2_artx6")
+value = 0.5
+script = SubResource("GDScript_5gbfl")
 
 [node name="backToMenu" type="Button" parent="containers"]
 layout_mode = 2
@@ -62,6 +85,11 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 icon = ExtResource("3_le7ej")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wq7ce")
+autoplay = true
+
 [connection signal="toggled" from="containers/CheckButton/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="item_selected" from="containers/resolutionsOptionButton" to="." method="_on_resolutions_option_button_item_selected"]
+[connection signal="value_changed" from="containers/master" to="." method="_on_master_value_changed"]
 [connection signal="pressed" from="containers/backToMenu" to="." method="_on_back_to_menu_pressed"]

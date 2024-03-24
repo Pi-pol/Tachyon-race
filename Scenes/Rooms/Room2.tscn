@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqjrlhjy4j0h5"]
+[gd_scene load_steps=7 format=3 uid="uid://dociwbo67yc4b"]
 
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="1_3n1iv"]
 [ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="2_jtw7p"]
@@ -172,6 +172,7 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 2, 1, 196608, 4, 2, 196608, 4, 3,
 layer_0/tile_data = PackedInt32Array(196614, 0, 0, 262150, 0, 1, 196615, 65536, 0, 262151, 65536, 1, 196616, 131072, 0, 262152, 131072, 1, 917514, 196608, 0, 917515, 262144, 0, 983050, 196608, 1, 983051, 262144, 1, 1048586, 196608, 2, 1048587, 262144, 2, 131078, 589824, 0, 131080, 524288, 0, 327688, 524288, 0, 327686, 589824, 0, 327687, 458752, 1, 131079, 458752, 1, 983052, 524288, 1, 917516, 65536, 5, 1048588, 0, 5, 983049, 524288, 0, 983048, 458752, 0, 983054, 655360, 0, 524295, 458752, 0, 458772, 196608, 0, 458773, 262144, 0, 524308, 196608, 1, 524309, 262144, 1, 589844, 196608, 2, 589845, 262144, 2, 1310738, 458752, 0)
 
 [node name="Furniture" type="TileMap" parent="."]
+position = Vector2(40, 136)
 tile_set = SubResource("TileSet_5dipu")
 format = 2
 script = ExtResource("4_siq4a")

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpowwrua7kmmu"]
+
+[ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="1_xxkod"]
+[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="2_4a3l7"]
+[ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="3_pkiht"]
+[ext_resource type="Script" path="res://Scripts/Furniture.gd" id="4_gvhha"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8u53"]
+texture = ExtResource("3_pkiht")
+texture_region_size = Vector2i(32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+8:0/0 = 0
+8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:0/0/physics_layer_0/angular_velocity = 0.0
+9:0/0 = 0
+9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:0/0/physics_layer_0/angular_velocity = 0.0
+21:3/0 = 0
+21:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+21:3/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.0246, 0.944941, 14.375, 1.125, 14.2922, 9.05568, -16.1034, 9.13443)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.0625, 1.125, 14.5625, 1, 14.6875, 9.25, -16.4375, 8.875)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.1875, 5.25, 6.9375, 5.25, 7.1875, 14.875, -16.4375, 14.875)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_4rhrk"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_f8u53")
+
+[node name="Room1" type="Node2D"]
+
+[node name="BaseTilemap" parent="." instance=ExtResource("1_xxkod")]
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 458753, 0, 0, 393217, 0, 0, 327681, 0, 0, 262145, 0, 0, 196609, 0, 0, 131073, 0, 0, 65537, 0, 0, 1, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 65536, 0, 327682, 65536, 0, 393218, 0, 0, 458754, 0, 0, 458755, 0, 0, 393219, 65536, 0, 327683, 65536, 0, 262147, 65536, 0, 196611, 65536, 0, 131075, 0, 0, 65539, 0, 0, 3, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 65536, 0, 196612, 65536, 0, 262148, 131072, 5, 327684, 131072, 6, 393220, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 0, 0, 393222, 65536, 0, 327686, 65536, 0, 393221, 65536, 0, 327685, 196608, 6, 262149, 196608, 5, 196613, 65536, 0, 196614, 65536, 0, 262150, 65536, 0, 131078, 0, 0, 65542, 0, 0, 65541, 0, 0, 5, 0, 0, 131077, 65536, 0, 7, 0, 0, 6, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 65536, 0, 327687, 65536, 0, 393223, 0, 0, 458759, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 458760, 0, 0, 393224, 0, 0, 327688, 0, 0, 262152, 0, 0, 196616, 0, 0, 131080, 0, 0, 65544, 0, 0, 8, 0, 0, -65536, 196608, 4, -65535, 196608, 4, -65534, 196608, 4, -65533, 196608, 4, -65532, 196608, 4, -65531, 196608, 4, -65530, 196608, 4, -65529, 196608, 4, -65528, 196608, 4, -131072, 196608, 3, -131071, 196608, 3, -131070, 196608, 3, -131069, 196608, 3, -131068, 196608, 3, -131067, 196608, 3, -131066, 196608, 3, -131065, 196608, 3, -131064, 196608, 3, -131063, 393216, 0, -65527, 393216, 1, -131062, 458752, 0, -65526, 458752, 1, 9, 262144, 2, 65545, 262144, 2, 131081, 262144, 2, 196617, 262144, 2, 262153, 262144, 2, 327689, 262144, 2, 393225, 262144, 2, 458761, 262144, 2, 524297, 262144, 2, 589832, 262144, 4, 589831, 262144, 4, 589830, 262144, 4, 589829, 262144, 4, 589828, 262144, 4, 589827, 262144, 4, 589826, 262144, 4, 589825, 262144, 4, 589824, 262144, 4, 589833, 262144, 0, 655369, 262144, 1, 655370, 327680, 1, 589834, 327680, 0, 524298, 327680, 2, 458762, 327680, 2, 393226, 327680, 2, 327690, 327680, 2, 262154, 327680, 2, 196618, 327680, 2, 131082, 327680, 2, 65546, 327680, 2, 10, 327680, 2, 655368, 262144, 5, 655367, 262144, 5, 655366, 262144, 5, 655365, 262144, 5, 655364, 262144, 5, 655363, 262144, 5, 655362, 262144, 5, 655361, 262144, 5, 655360, 262144, 5)
+
+[node name="DoorsTilemap" parent="." instance=ExtResource("2_4a3l7")]
+
+[node name="Furniture" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_4rhrk")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65529, 65536, 0, -65527, 65536, 0, -65525, 65536, 0, 7, 131072, 0, 9, 131072, 0, 11, 131072, 0, -131058, 524288, 0)
+script = ExtResource("4_gvhha")

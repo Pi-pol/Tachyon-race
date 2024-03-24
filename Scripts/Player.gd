@@ -44,6 +44,7 @@ func _check_pushables(motion: Vector2) -> void:
 
 func _on_item_item_collected(Name):
 	print("Picked up")
+	$AudioStreamPlayer2D.play()
 	if(inventory==""):
 		inventory=Name
 	else:

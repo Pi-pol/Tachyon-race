@@ -1,17 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=23 format=3 uid="uid://oo0vn7fcpglf"]
 
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
-[ext_resource type="PackedScene" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
+[ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
 [ext_resource type="Texture2D" uid="uid://begckgk320i22" path="res://character.png" id="2_xif6h"]
 [ext_resource type="Script" path="res://Scripts/PushBox.gd" id="3_fsm57"]
-[ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
-[ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
-[ext_resource type="PackedScene" uid="uid://bea2qh6ew34b6" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
+[ext_resource type="PackedScene" uid="uid://byvm3u2388a0w" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="Script" path="res://Scripts/door_script.gd" id="9_qrhr4"]
 [ext_resource type="Texture2D" uid="uid://d235fmkljycgo" path="res://Assets/furniture.png" id="10_a3aqt"]
+[ext_resource type="AudioStream" uid="uid://pt31abkpqjsa" path="res://Assets/SFX/pickup.wav" id="10_iyrer"]
 [ext_resource type="Script" path="res://Scripts/Furniture.gd" id="11_a4r7w"]
 [ext_resource type="FontFile" uid="uid://cqsuld7mf6wi" path="res://Assets/ARCADECLASSIC.TTF" id="12_gps5e"]
+[ext_resource type="AudioStream" uid="uid://bmmbw504m5ym0" path="res://Assets/SFX/door.wav" id="13_jtfjq"]
 [ext_resource type="PackedScene" uid="uid://bobhlkyxttsem" path="res://Scenes/item.tscn" id="13_l8ngd"]
 
 [sub_resource type="Shader" id="Shader_xmui1"]
@@ -140,10 +142,16 @@ editor_draw_limits = true
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_84ht8")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="TileMap/Player"]
+stream = ExtResource("10_iyrer")
+
 [node name="DoorsTilemap" parent="." instance=ExtResource("8_k6orn")]
 layer_0/z_index = 1410065407
 layer_0/tile_data = PackedInt32Array(196614, 0, 1, 131079, 65536, 0, 196615, 65536, 1, 131080, 131072, 0, 196616, 131072, 1, 131078, 0, 0, 65543, 458752, 1, 262151, 458752, 1, 65542, 589824, 0, 262150, 589824, 0, 262152, 524288, 0, 65544, 524288, 0)
 script = ExtResource("9_qrhr4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DoorsTilemap"]
+stream = ExtResource("13_jtfjq")
 
 [node name="Text1Node2" type="Node2D" parent="."]
 position = Vector2(373, 169)

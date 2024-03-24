@@ -13,6 +13,7 @@ func _process(delta):
 
 
 func _on_button_game_door_button_pressed():
+	$AudioStreamPlayer2D.play()
 	print("Pressed")
 	set_cell(0, Vector2(6, 2), 0, Vector2(0, 2))
 	set_cell(0, Vector2(6, 3), 0, Vector2(0, 3))

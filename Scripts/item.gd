@@ -17,6 +17,9 @@ func _physics_process(delta):
 	
 
 func _on_action_fild_area_entered(area):
+	
 	if time_since_dropped >= threshold:
+		
 		itemCollected.emit("res://Scenes/item.tscn")
+		
 		queue_free()

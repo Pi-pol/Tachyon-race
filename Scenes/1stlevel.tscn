@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://oo0vn7fcpglf"]
+[gd_scene load_steps=26 format=3 uid="uid://oo0vn7fcpglf"]
 
+[ext_resource type="Script" path="res://Scenes/1stlevel.gd" id="1_px6b5"]
 [ext_resource type="PackedScene" uid="uid://dtk3e2suufm0m" path="res://Scenes/player.tscn" id="1_y7u1b"]
 [ext_resource type="Texture2D" uid="uid://dpb31771lqv1" path="res://sth.png" id="2_40tig"]
 [ext_resource type="PackedScene" uid="uid://bsc27jlyp74gh" path="res://Scenes/action_emmiter.tscn" id="2_pu3r0"]
@@ -16,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://cqsuld7mf6wi" path="res://Assets/ARCADECLASSIC.TTF" id="12_gps5e"]
 [ext_resource type="AudioStream" uid="uid://bmmbw504m5ym0" path="res://Assets/SFX/door.wav" id="13_jtfjq"]
 [ext_resource type="PackedScene" uid="uid://bobhlkyxttsem" path="res://Scenes/item.tscn" id="13_l8ngd"]
+[ext_resource type="AudioStream" uid="uid://sdot0hbnwsdv" path="res://Assets/SFX/theme.wav" id="18_8dxdt"]
 
 [sub_resource type="Shader" id="Shader_xmui1"]
 code = "shader_type canvas_item;
@@ -86,6 +88,7 @@ size = Vector2(32, 32)
 
 [node name="1Stlevel" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_px6b5")
 
 [node name="Pudelko" type="CharacterBody2D" parent="."]
 position = Vector2(281, 274)
@@ -186,6 +189,10 @@ metadata/_edit_group_ = true
 [node name="item2" parent="." instance=ExtResource("13_l8ngd")]
 position = Vector2(626, 84)
 metadata/_edit_group_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_8dxdt")
+attenuation = 0.0
 
 [connection signal="door_button_pressed" from="ButtonGame" to="TileMap/Furniture" method="_on_button_game_door_button_pressed"]
 [connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]

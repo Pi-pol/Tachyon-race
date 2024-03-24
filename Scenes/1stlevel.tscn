@@ -39,7 +39,7 @@ size = Vector2(1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60p0f"]
 size = Vector2(32, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8u53"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d3sn0"]
 texture = ExtResource("10_a3aqt")
 texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
@@ -57,31 +57,25 @@ texture_region_size = Vector2i(32, 32)
 9:0/0 = 0
 9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:0/0/physics_layer_0/angular_velocity = 0.0
-21:3/0 = 0
-21:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-21:3/0/physics_layer_0/angular_velocity = 0.0
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.0246, 0.944941, 14.375, 1.125, 14.2922, 9.05568, -16.1034, 9.13443)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.0625, 1.125, 14.5625, 1, 14.6875, 9.25, -16.4375, 8.875)
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.1875, 5.25, 6.9375, 5.25, 7.1875, 14.875, -16.4375, 14.875)
-4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_3kl0b"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_f8u53")
+sources/1 = SubResource("TileSetAtlasSource_d3sn0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84ht8"]
 size = Vector2(32, 32)
@@ -123,7 +117,7 @@ layer_0/tile_data = PackedInt32Array(65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 6554
 [node name="Furniture" type="TileMap" parent="TileMap"]
 tile_set = SubResource("TileSet_3kl0b")
 format = 2
-layer_0/tile_data = PackedInt32Array(65547, 458752, 0, 65539, 65536, 0, 65542, 196608, 0, 131075, 131072, 0)
+layer_0/tile_data = PackedInt32Array(131075, 131073, 0, 65539, 65537, 0, 65542, 196609, 0, 65547, 393217, 0)
 script = ExtResource("11_a4r7w")
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_y7u1b")]
@@ -172,8 +166,8 @@ offset_bottom = 8.0
 theme_override_fonts/normal_font = ExtResource("12_gps5e")
 text = "Press   this   to   open   the   door"
 
-[connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
 [connection signal="door_button_pressed" from="ButtonGame" to="TileMap/Furniture" method="_on_button_game_door_button_pressed"]
+[connection signal="door_button_pressed" from="ButtonGame" to="DoorsTilemap" method="_on_button_game_door_button_pressed"]
 
 [editable path="TileMap/Player"]
 [editable path="TileMap/Player/action_emmiter"]

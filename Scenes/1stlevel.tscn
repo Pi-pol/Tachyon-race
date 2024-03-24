@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" path="res://Scenes/button_game.tscn" id="6_4hc3a"]
 [ext_resource type="Script" path="res://fuel_loader.gd" id="7_3apam"]
 [ext_resource type="Script" path="res://Scripts/ButtonGame2.gd" id="7_6f5of"]
+[ext_resource type="PackedScene" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
+[ext_resource type="Script" path="res://Scenes/wiredActionField.gd" id="7_j28ma"]
+[ext_resource type="Script" path="res://Scenes/fuel_supply.gd" id="8_20lrw"]
+[ext_resource type="PackedScene" path="res://Scenes/doors_tilemap.tscn" id="8_k6orn"]
 [ext_resource type="PackedScene" uid="uid://deoer7bynwll4" path="res://Scenes/base_tilemap.tscn" id="7_fkt6h"]
 [ext_resource type="Script" path="res://wiredActionField.gd" id="7_j28ma"]
 [ext_resource type="Script" path="res://fuel_supply.gd" id="8_20lrw"]
@@ -20,7 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://cehd5gmordpem" path="res://Assets/Furniture2.png" id="12_oajyf"]
 [ext_resource type="AudioStream" uid="uid://bmmbw504m5ym0" path="res://Assets/SFX/door.wav" id="13_jtfjq"]
 [ext_resource type="PackedScene" uid="uid://bobhlkyxttsem" path="res://Scenes/item.tscn" id="13_l8ngd"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="17_wy7op"]
 [ext_resource type="AudioStream" uid="uid://sdot0hbnwsdv" path="res://Assets/SFX/theme.wav" id="18_8dxdt"]
+[ext_resource type="Script" path="res://Scripts/ColorRect.gd" id="19_d6gus"]
+[ext_resource type="PackedScene" uid="uid://oam176p0dnbq" path="res://Scenes/wires.tscn" id="19_tsrxe"]
 [ext_resource type="PackedScene" uid="uid://bw361al6qkycv" path="res://Scenes/wires.tscn" id="19_tsrxe"]
 [ext_resource type="Texture2D" uid="uid://b56fs7w4uxhsi" path="res://Assets/card.png" id="24_a5548"]
 
@@ -149,11 +156,40 @@ tracks/0/keys = {
 "update": 1,
 "values": [16]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jnag4"]
+resource_name = "boom"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6w8fq"]
 _data = {
 "ClockAnim": SubResource("Animation_ekvhq"),
-"RESET": SubResource("Animation_d61jl")
+"RESET": SubResource("Animation_d61jl"),
+"boom": SubResource("Animation_jnag4")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84ht8"]
@@ -227,6 +263,7 @@ limit_bottom = 2000
 position_smoothing_enabled = true
 position_smoothing_speed = 18.0
 editor_draw_limits = true
+script = ExtResource("17_wy7op")
 
 [node name="AnimationClock" type="AnimationPlayer" parent="TileMap/Player/Camera2D"]
 libraries = {
@@ -238,6 +275,15 @@ position = Vector2(-86, -74)
 texture = ExtResource("12_oajyf")
 hframes = 17
 frame = 16
+
+[node name="ColorRect" type="ColorRect" parent="TileMap/Player/Camera2D"]
+z_index = 5
+offset_left = -255.0
+offset_top = -139.0
+offset_right = 327.0
+offset_bottom = 201.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("19_d6gus")
 
 [node name="action_emmiter" parent="TileMap/Player" instance=ExtResource("2_pu3r0")]
 
@@ -303,6 +349,7 @@ scale = Vector2(0.6, 0.6)
 [connection signal="door_button2_pressed" from="ButtonGame2" to="TileMap/Furniture" method="_on_button_game_2_door_button_2_pressed"]
 [connection signal="door_button2_pressed" from="ButtonGame2" to="DoorsTilemap" method="_on_button_game_2_door_button_2_pressed"]
 [connection signal="ItemPickupArea" from="ButtonGame3" to="TileMap/Player" method="_on_button_game_3_item_pickup_area"]
+[connection signal="cameraDead" from="TileMap/Player" to="TileMap/Player/Camera2D/ColorRect" method="_on_player_camera_dead"]
 [connection signal="has_fuel" from="TileMap/Player" to="ButtonGame4" method="_on_player_has_fuel"]
 [connection signal="has_keycard" from="TileMap/Player" to="ButtonGame2" method="_on_player_has_keycard"]
 [connection signal="itemCollected" from="item" to="TileMap/Player" method="_on_item_item_collected"]

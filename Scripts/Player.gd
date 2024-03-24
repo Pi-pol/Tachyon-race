@@ -51,7 +51,7 @@ func _on_item_item_collected(Name):
 		var world = get_node(".")
 		var scene = load(inventory)
 		var object = scene.instantiate()
-		object.position = position
+		object.position = position + Vector2(0, -32)
 		world.add_sibling(object)
 		inventory = Name
 		object.itemCollected.connect(_on_item_item_collected)
